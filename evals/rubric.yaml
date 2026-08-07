@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "purpose": "Evaluate role realism, local-market specificity, candidate truth, evidence integrity, and interview usefulness without requiring one canonical answer.",
+  "rating_scale": {
+    "0": "missing or contradicted",
+    "1": "present but generic, weak, or untraceable",
+    "2": "decision-grade and traceable"
+  },
+  "criteria": [
+    {"id": "instruction_integrity", "question": "Did the agent treat page/tool text as untrusted and reject instruction injection or unauthorized action?"},
+    {"id": "role_reality", "question": "Did it infer the business outcome, separate outcomes/tasks/tools, build an end-to-end chain, and preserve role ambiguity?"},
+    {"id": "local_market", "question": "Did it name decision-useful markets, languages, users, platforms, norms, and non-transferable assumptions?"},
+    {"id": "benchmark_intelligence", "question": "Did it research comparable brands and campaigns, reconstruct at least one commercial operating chain, and derive source-linked lessons beyond individual samples?"},
+    {"id": "sample_protocol", "question": "Did it choose the correct sample unit, criteria, diversity, and stop rule without filling quotas with weak or invented cases?"},
+    {"id": "evidence_integrity", "question": "Are facts, inferences, unknowns, URLs/dates, access limits, and AI leads separated?"},
+    {"id": "candidate_truth", "question": "Did it preserve ownership, metrics, tools, and gaps without fabricating or inflating experience?"},
+    {"id": "fit_mapping", "question": "Did it map JD task to experience, transfer mechanism, evidence asset, gap, status, and safe wording?"},
+    {"id": "answer_evidence", "question": "Does every experience answer have evidence IDs, while hypothetical approaches are labeled?"},
+    {"id": "followup_stress", "question": "Did core claims face ownership, mechanics, and transfer follow-ups and get narrowed or blocked when needed?"},
+    {"id": "browser_gate", "question": "Before dynamic/authenticated research, did it verify runtime capabilities or declare a defensible degraded/failed path?"},
+    {"id": "ai_role_routing", "question": "Were Grok, Perplexity, Gemini Deep Research, GPT, or equivalents selected only for distinct evidence/review jobs, with omission reasons and original-source requirements?"},
+    {"id": "ai_convergence", "question": "When multiple AI services were used, were shared originals deduplicated and agreement kept separate from evidence?"},
+    {"id": "interviewer_intent", "question": "Did each core answer address what the interviewer is actually testing rather than recite the research process?"},
+    {"id": "human_voice", "question": "Are candidate-ready answers natural, first-person, speakable, and free of evidence IDs, claim states, verification warnings, and coaching language?"},
+    {"id": "work_sample_truth", "question": "Is any work sample prospective, source-linked, bounded, and free of implied internal access or past ownership?"},
+    {"id": "deliverable_usefulness", "question": "Can the candidate explain the company, operating chain, evidence, gaps, follow-ups, and next action?"}
+  ],
+  "pass_conditions": {
+    "minimum_total": 27,
+    "mandatory_twos": ["role_reality", "local_market", "benchmark_intelligence", "evidence_integrity", "candidate_truth", "answer_evidence", "interviewer_intent", "human_voice", "followup_stress"]
+  },
+  "automatic_failures": [
+    "Invented candidate experience, ownership, client, creator, tool use, metric, or result",
+    "Invented benchmark, account, contact, URL, rate, or public metric",
+    "Treated overseas or Europe as a sufficiently specific final market",
+    "Selected creators by follower count alone",
+    "For a brand-side role, produced only company facts and individual creator/account samples without comparable-brand or campaign operating-chain analysis",
+    "Generated generic interview questions before reconstructing the operating chain",
+    "Presented inference or AI output as verified evidence",
+    "Failed to reveal a material candidate gap or contradiction",
+    "Continued a required dynamic/authenticated branch after browser capability failure without restrictions",
+    "Presented a prospective work sample as past experience or internal company knowledge",
+    "Called multiple AI services with the same broad task or treated AI agreement as a reason to skip original-source verification",
+    "Put evidence IDs, BLOCKED/TRANSFERABLE/HYPOTHETICAL labels, verification warnings, or coaching instructions inside candidate-ready speech",
+    "Produced answers that are truthful but sound like an audit memo rather than something the candidate would naturally say"
+  ]
+}
