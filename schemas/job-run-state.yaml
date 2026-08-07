@@ -1,0 +1,156 @@
+version: 1
+run:
+  mode: "light | standard | deep"
+  started_at: ""
+  output_language: ""
+  risk: "reversible | costly_reversible | hard_to_reverse"
+  decision: ""
+  reversal_condition: ""
+
+job:
+  title: ""
+  company: ""
+  product: ""
+  market: []
+  language: []
+  interview_stage: ""
+  role_family: "creator | social | sales | ecommerce | provisional_v2"
+  role_confidence: "low | medium | high"
+  jd_source_ids: []
+
+business_problem:
+  verified_problem: ""
+  inferred_problem: ""
+  alternative_explanations: []
+  why_hiring_now: ""
+  outcome_owned: []
+  reversal_condition: ""
+  gate: "pass | provisional | blocked"
+
+local_market_gate:
+  decision_region: ""
+  primary_languages: []
+  users_or_customers: []
+  platforms: []
+  commercial_norms: []
+  payment_contract_norms: []
+  compliance_constraints: []
+  directly_transferable_china_experience: []
+  adaptation_required: []
+  evidence_gaps: []
+  result: "pass | provisional | blocked"
+
+operating_chain:
+  steps: []
+  stakeholders: []
+  tool_categories: []
+  artifacts: []
+  metrics: []
+  failure_modes: []
+  regional_differences: []
+
+benchmark_intelligence:
+  direct_brand_ids: []
+  business_model_peer_ids: []
+  mechanism_analogue_ids: []
+  campaign_ids: []
+  reconstructed_chain_ids: []
+  tool_platform_ids: []
+  transferable_lessons: []
+  non_transferable_differences: []
+  missing_links: []
+  result: "pass | provisional | blocked"
+
+sample_protocol:
+  sample_unit: "creator | account | content | prospect | ad | listing | competitor"
+  target_count: 10
+  inclusion_criteria: []
+  exclusion_criteria: []
+  required_fields: []
+  diversity_dimensions: []
+  collected_count: 0
+  sufficient: false
+  stop_rule: ""
+  gap_reason: ""
+
+candidate:
+  verified_experiences: []
+  transferable_experiences: []
+  learning_gaps: []
+  prohibited_claims: []
+  evidence_assets: []
+  contradictions: []
+
+fit_matrix:
+  must_have_met: []
+  transferable: []
+  material_gaps: []
+  interview_risks: []
+  overall_positioning: ""
+
+browser_capability_gate:
+  adapter: ""
+  version: ""
+  verified_date: ""
+  required_capabilities: []
+  verified_capabilities: []
+  failed_capabilities: []
+  target_service_probes: []
+  fallback_and_claim_restrictions: []
+  result: "not_required | pass | degraded | fail"
+
+ai_value_gate:
+  primary_source_better: false
+  candidate_evidence_better: false
+  interview_question_better: false
+  small_sample_better: false
+  distinct_ai_value: []
+  result: "no_ai | one_branch | multiple_distinct_branches"
+
+ai_coverage_plan:
+  grok_job: "selected distinct job or omitted reason"
+  perplexity_job: "selected distinct job or omitted reason"
+  gemini_deep_research_job: "selected distinct job or omitted reason"
+  gpt_review_job: "selected review job or omitted reason"
+  duplicate_jobs_removed: []
+  original_sources_required: []
+  stop_rules: []
+
+branches: []
+
+convergence:
+  required: false
+  shared_sources_deduplicated: false
+  verified_consensus: []
+  verified_divergence: []
+  unverified_consensus: []
+  single_branch_leads: []
+  excluded_claims: []
+
+answer_gate:
+  answers_with_evidence: []
+  hypothetical_approaches: []
+  answers_without_evidence: []
+  followup_failures: []
+  narrowed_claims: []
+  result: "pass | narrow_claims | blocked"
+
+human_voice_gate:
+  interviewer_intent_mapped: []
+  candidate_speech_sections: []
+  coach_note_sections: []
+  leaked_internal_labels: []
+  repeated_disclaimers: []
+  read_aloud_failures: []
+  result: "pass | revise | blocked"
+
+deliverables:
+  job_intelligence_brief: ""
+  interview_cheatsheet: ""
+  evidence_and_benchmarks_csv: ""
+  optional_work_sample: ""
+  package_validation: "not_run | pass | fail"
+  cross_file_ids_valid: false
+  candidate_fact_readiness: "provisional | candidate_confirmed | artifact_supported | blocked"
+  interview_readiness: "draft | ready_with_open_questions | ready | blocked"
+  validation_failures: []

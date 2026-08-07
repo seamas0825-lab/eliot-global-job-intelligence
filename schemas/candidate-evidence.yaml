@@ -1,0 +1,54 @@
+version: 1
+candidate_id: ""
+experiences:
+  - experience_id: "EXP-001"
+    organization_or_context: ""
+    title_or_role: ""
+    date_range: ""
+    situation: ""
+    ownership: "independently_owned | participated | assisted | observed"
+    actions: []
+    result: ""
+    metrics:
+      - name: ""
+        definition: ""
+        value: ""
+        source: ""
+        date_range: ""
+        baseline: ""
+        candidate_contribution: ""
+        confounders: []
+        verification: "verified | candidate_reported | unclear"
+    tools:
+      - name: ""
+        status: "used | aware_not_used | planned_learning | no_experience"
+        task_performed: ""
+    asset_ids: []
+    contradiction_ids: []
+
+assets:
+  - asset_id: "AST-001"
+    type: "portfolio | public_account | document | dashboard | screenshot | message | process | reference"
+    path_or_url: ""
+    sensitive_data_removed: false
+    proves: []
+    limitations: []
+
+claims:
+  - claim_id: "CLM-001"
+    statement: ""
+    experience_ids: []
+    asset_ids: []
+    status: "verified | transferable | learning_gap | do_not_claim"
+    safe_wording_zh: ""
+    safe_wording_en: ""
+    likely_followups: []
+    stress_test: "pass | narrowed | blocked"
+
+contradictions:
+  - contradiction_id: "CON-001"
+    statements: []
+    source_locations: []
+    resolved_value: ""
+    status: "open | resolved"
+

@@ -1,0 +1,25 @@
+version: 1
+records:
+  - record_id: "SMP-001"
+    sample_type: "benchmark_brand | campaign | program | creator | account | content | prospect | ad | listing | tool_or_platform | expert_case | discussion | policy | source_asset"
+    relationship: "direct | analogous"
+    name: ""
+    market: ""
+    language: ""
+    platform: ""
+    url: ""
+    observed_date: ""
+    source_role: "official | native_behavior | candidate_claim | user_supplied_job | user_voice | practitioner_voice | authoritative | reporting | vendor | ai_lead"
+    inclusion_criteria_met: []
+    diversity_tags: []
+    direct_evidence: []
+    inference: []
+    public_metrics: []
+    key_mechanism: ""
+    operational_fit: ""
+    risk: []
+    transfer_lesson: ""
+    interview_use: ""
+    confidence: "low | medium | high"
+    excluded: false
+    exclusion_reason: ""
