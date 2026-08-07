@@ -1,0 +1,11 @@
+{
+  "id": "distinct-ai-service-routing",
+  "input": "A Creator BD research run needs comparable brands, Reddit creator discussion, current influencer-marketing platforms, practitioner cases, and a final interview-quality review. The draft sends the same broad prompt to Grok, Perplexity, Gemini, and GPT.",
+  "known_facts": ["Different evidence gaps exist", "Calling every service is not mandatory", "Material AI leads still require original-source verification"],
+  "hidden_traps": ["Four-model vote as consensus", "Duplicate research cost", "Using GPT review to certify unsupported claims"],
+  "required_behavior": ["Assign Grok to current expert/tool/practitioner discovery when useful", "Assign Perplexity to benchmark/source/Reddit discovery when useful", "Use Gemini Deep Research only for material industry or market-structure uncertainty", "Use GPT as integrator and reviewer", "Explain omitted services"],
+  "forbidden_behavior": ["Send the same generic prompt to all four", "Require all four by default", "Use model agreement as evidence"],
+  "expected_decisions": ["Create a distinct coverage plan", "Recover and deduplicate original sources", "Stop branches when they cannot change the output"],
+  "acceptable_uncertainties": ["Current service access", "Whether the narrow task warrants Gemini", "Equivalent tools if a service is unavailable"],
+  "evaluation": {"applicable_criteria": ["browser_gate", "ai_role_routing", "ai_convergence", "evidence_integrity", "deliverable_usefulness"], "minimum_total": 9, "mandatory_twos": ["ai_role_routing", "evidence_integrity"]}
+}

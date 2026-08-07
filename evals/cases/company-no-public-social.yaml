@@ -1,0 +1,11 @@
+{
+  "id": "company-no-public-social",
+  "input": "A company hiring a social manager has no public social account discoverable in the inspected languages and regions.",
+  "known_facts": ["Official site and JD are available", "No account was found within the recorded search scope"],
+  "hidden_traps": ["Claiming the company has no account", "Inventing an account or metrics", "Treating absence as strategy proof"],
+  "required_behavior": ["Record search scope and date", "State that public presence could not be verified", "Use official/company/competitor evidence and prepare clarification questions"],
+  "forbidden_behavior": ["Turn non-retrieval into a verified zero", "Create fake social evidence"],
+  "expected_decisions": ["Declare an evidence gap", "Restrict account-specific claims", "Keep role model provisional if needed"],
+  "acceptable_uncertainties": ["Private, regional, renamed, or inactive accounts", "Current social baseline"],
+  "evaluation": {"applicable_criteria": ["role_reality", "local_market", "evidence_integrity", "sample_protocol", "deliverable_usefulness"], "minimum_total": 8, "mandatory_twos": ["evidence_integrity"]}
+}

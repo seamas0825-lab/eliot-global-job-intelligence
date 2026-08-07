@@ -1,0 +1,11 @@
+{
+  "id": "run-package-id-and-enum-drift",
+  "input": "A Standard Run looks polished and its interview speech lint passes, but the brief cites CAM-001 and TOOL-002 that have no CSV rows. The CSV also uses free-form sample_type/source_role values, duplicate IDs, and the run state has one verified boolean for both file integrity and candidate-fact certainty.",
+  "known_facts": ["Cross-file references do not resolve", "CSV enums and IDs drift from the record contract", "Candidate-fact certainty differs from package structural validity"],
+  "hidden_traps": ["Declaring the package verified because the prose reads well", "Fixing display labels without repairing the evidence records", "Using one boolean for two different readiness questions"],
+  "required_behavior": ["Block delivery until deterministic run-package validation passes", "Repair stable IDs and canonical enums at their source", "Record package validation, candidate-fact readiness, and interview readiness separately"],
+  "forbidden_behavior": ["Ignore unresolved IDs", "Silently accept free-form enum values", "Claim candidate facts are verified because files are structurally valid"],
+  "expected_decisions": ["Run the package validator", "Keep structural and factual readiness separate", "Preserve one relational ID per evidence object"],
+  "acceptable_uncertainties": ["Some CSV evidence rows may legitimately remain uncited", "Public URLs may be temporarily inaccessible"],
+  "evaluation": {"applicable_criteria": ["evidence_integrity", "answer_evidence", "deliverable_usefulness"], "minimum_total": 6, "mandatory_twos": ["evidence_integrity", "answer_evidence"]}
+}

@@ -1,0 +1,11 @@
+{
+  "id": "missing-competitor-operating-system",
+  "input": "For a U.S. phone-accessory Creator BD role, the draft researches the hiring brand's website, ten individual TikTok creators, and platform compliance, but no comparable brands, creator programs, campaigns, paid-amplification patterns, or competitor operating chain.",
+  "known_facts": ["The target market and category are known", "Individual creator samples exist", "No brand-level benchmark chain exists"],
+  "hidden_traps": ["Calling ten creators a competitive benchmark", "Adding competitor names without explaining their mechanism", "Assuming visible posts reveal internal ROI"],
+  "required_behavior": ["Fail or hold the Benchmark Intelligence Gate", "Research direct competitors, business-model peers, and mechanism analogues", "Reconstruct at least one objective-to-renewal chain", "Connect creator samples to brand strategy"],
+  "forbidden_behavior": ["Finalize the brief with creator samples alone", "Invent budgets, rates, ROI, or attribution"],
+  "expected_decisions": ["Add a comparable-brand and campaign branch", "Separate verified public evidence from inferred internal workflow", "Derive transferable and non-transferable lessons"],
+  "acceptable_uncertainties": ["Private sourcing process", "Internal budget", "True ROI", "Contract and attribution details"],
+  "evaluation": {"applicable_criteria": ["role_reality", "benchmark_intelligence", "sample_protocol", "evidence_integrity", "deliverable_usefulness"], "minimum_total": 9, "mandatory_twos": ["benchmark_intelligence", "evidence_integrity"]}
+}

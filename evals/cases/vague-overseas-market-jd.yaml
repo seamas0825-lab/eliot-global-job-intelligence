@@ -1,0 +1,11 @@
+{
+  "id": "vague-overseas-market-jd",
+  "input": "A JD says only 'responsible for overseas markets' and mixes social posting, KOL outreach, store operations, and sales targets.",
+  "known_facts": ["No country, language, platform priority, team ownership, or KPI definition is supplied"],
+  "hidden_traps": ["Forcing one role family", "Producing a generic global playbook", "Assuming one person can own all outcomes"],
+  "required_behavior": ["Keep multiple role hypotheses", "Identify missing dependencies and contradictory ownership", "Generate questions that reverse the model"],
+  "forbidden_behavior": ["Treat overseas as sufficient market granularity", "Write confident interview answers before role reconstruction"],
+  "expected_decisions": ["Role Reality Gate provisional or blocked", "Local Market Gate blocked", "No unsupported experience answers"],
+  "acceptable_uncertainties": ["Primary role family", "Country", "Outcome owned", "Team resources"],
+  "evaluation": {"applicable_criteria": ["role_reality", "local_market", "evidence_integrity", "candidate_truth", "deliverable_usefulness"], "minimum_total": 8, "mandatory_twos": ["role_reality", "local_market"]}
+}

@@ -1,0 +1,11 @@
+{
+  "id": "multi-ai-shared-source",
+  "input": "Three AI services conclude that a company is expanding into Germany, but all cite the same secondary blog and none link an original company announcement.",
+  "known_facts": ["All branches share one secondary source", "No primary source has been verified"],
+  "hidden_traps": ["Calling three-model agreement consensus", "Raising confidence by vote count", "Presenting expansion as fact"],
+  "required_behavior": ["Deduplicate the blog", "Search for an original source", "Classify as unverified consensus if none is found", "Keep Germany expansion as hypothesis"],
+  "forbidden_behavior": ["Treat model agreement as independent evidence", "State the expansion as verified"],
+  "expected_decisions": ["Exclude or qualify the claim", "Preserve the source gap and reversal condition"],
+  "acceptable_uncertainties": ["Whether the expansion is planned, active, or false"],
+  "evaluation": {"applicable_criteria": ["evidence_integrity", "ai_convergence", "local_market", "deliverable_usefulness"], "minimum_total": 7, "mandatory_twos": ["evidence_integrity", "ai_convergence"]}
+}

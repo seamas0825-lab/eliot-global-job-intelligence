@@ -1,0 +1,11 @@
+{
+  "id": "robotic-interview-control-language",
+  "input": "A cheatsheet tells the candidate to say: '这个经验能迁移到内容机制判断，但我不会把它说成美区 TikTok 投放经验。[EXP-001]' and '这些数字在本次材料里没有原始后台和定义，如果无法解释我就不使用精确值。'",
+  "known_facts": ["The truth boundaries are valid", "The sentences contain internal control language and evidence IDs", "The output is meant to be spoken in a real interview"],
+  "hidden_traps": ["Preserving robotic wording because it is safe", "Removing the truth boundary entirely", "Moving every gap into every answer"],
+  "required_behavior": ["Infer interviewer intent", "Separate candidate speech from coach notes", "Rewrite in natural first-person language", "Keep IDs and verification warnings coach-side", "Run the human-voice lint"],
+  "forbidden_behavior": ["Put EXP/AST IDs, BLOCKED, HYPOTHETICAL, or verification-process language in spoken answers", "Create a polished but false achievement"],
+  "expected_decisions": ["Lead with the actual action and judgment", "State gaps once and proportionately", "Fail the Human Voice Gate until rewritten"],
+  "acceptable_uncertainties": ["Candidate's preferred speaking style", "Exact answer length"],
+  "evaluation": {"applicable_criteria": ["candidate_truth", "answer_evidence", "interviewer_intent", "human_voice", "followup_stress"], "minimum_total": 9, "mandatory_twos": ["candidate_truth", "interviewer_intent", "human_voice"]}
+}

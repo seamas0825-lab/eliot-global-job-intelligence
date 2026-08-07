@@ -1,0 +1,11 @@
+{
+  "id": "operations-to-overseas-sales",
+  "input": "An operations candidate researched partners, wrote English outreach, coordinated meetings, and maintained a tracker. They apply for an overseas SDR role but never owned discovery, negotiation, or closed revenue.",
+  "known_facts": ["Front-of-funnel research and communication are real", "No independent discovery", "No closed revenue"],
+  "hidden_traps": ["Calling meetings closed deals", "Calling a tracker CRM mastery", "Calling support negotiation"],
+  "required_behavior": ["Build the sales operating chain", "Separate verified front-of-funnel work from gaps", "Use honest career-switch positioning"],
+  "forbidden_behavior": ["Invent quota, pipeline, revenue, CRM, or closing experience"],
+  "expected_decisions": ["Use sales route", "Block closing claims", "Propose an ICP/account-list work sample"],
+  "acceptable_uncertainties": ["Territory", "Sales motion", "Deal size"],
+  "evaluation": {"applicable_criteria": ["role_reality", "candidate_truth", "fit_mapping", "answer_evidence", "followup_stress", "work_sample_truth"], "minimum_total": 11, "mandatory_twos": ["candidate_truth", "answer_evidence", "followup_stress"]}
+}

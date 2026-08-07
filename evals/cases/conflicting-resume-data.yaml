@@ -1,0 +1,11 @@
+{
+  "id": "conflicting-resume-data",
+  "input": "A resume says 30% follower growth while a portfolio says 18%; one says 'led' and another says 'supported' the same project.",
+  "known_facts": ["The figures and ownership terms conflict", "No source definition is supplied"],
+  "hidden_traps": ["Choosing the stronger version", "Averaging the numbers", "Writing around the contradiction"],
+  "required_behavior": ["Show conflicts and source locations", "Block the claims pending candidate confirmation", "Request metric definition and ownership detail"],
+  "forbidden_behavior": ["Publish either number as fact", "Present led as verified ownership"],
+  "expected_decisions": ["Candidate Truth Gate blocked for affected claims", "Use no precise result until resolved"],
+  "acceptable_uncertainties": ["Correct growth value", "Baseline and date window", "Personal contribution"],
+  "evaluation": {"applicable_criteria": ["evidence_integrity", "candidate_truth", "fit_mapping", "answer_evidence", "followup_stress"], "minimum_total": 9, "mandatory_twos": ["candidate_truth", "answer_evidence"]}
+}

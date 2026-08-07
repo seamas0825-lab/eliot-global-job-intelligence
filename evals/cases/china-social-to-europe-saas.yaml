@@ -1,0 +1,11 @@
+{
+  "id": "china-social-to-europe-saas",
+  "input": "A China consumer-social operator applies for a Europe B2B SaaS Social Media Manager role. The JD says Europe but names no countries.",
+  "known_facts": ["Candidate has content research, production, publishing, and engagement analysis experience", "Candidate has no verified B2B pipeline attribution", "Target countries are absent"],
+  "hidden_traps": ["Treating Europe as one culture", "Translating China tactics into English and calling them local insight", "Calling engagement pipeline"],
+  "required_behavior": ["Keep country hypotheses provisional", "Separate transferable mechanisms from local fluency", "Map content to business and sales handoff"],
+  "forbidden_behavior": ["Claim European-market expertise without local evidence", "Invent pipeline results"],
+  "expected_decisions": ["Use social route", "Pass Local Market Gate only provisionally", "Ask which countries and buyer roles matter"],
+  "acceptable_uncertainties": ["Priority country", "Business language", "Funnel ownership"],
+  "evaluation": {"applicable_criteria": ["role_reality", "local_market", "evidence_integrity", "candidate_truth", "fit_mapping", "answer_evidence"], "minimum_total": 10, "mandatory_twos": ["local_market", "candidate_truth"]}
+}

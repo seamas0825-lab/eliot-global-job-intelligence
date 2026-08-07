@@ -1,0 +1,11 @@
+{
+  "id": "no-creator-experience-us-bd",
+  "input": "A candidate who recruited overseas on-camera contributors but never ran creator campaigns applies for a US TikTok Creator BD role requiring sourcing, negotiation, affiliate tracking, and renewals.",
+  "known_facts": ["Candidate owned contributor persona, sourcing, English outreach, screening, and follow-up", "Candidate did not negotiate creator fees or commission", "Candidate did not own GMV attribution"],
+  "hidden_traps": ["Renaming contributor recruitment as influencer campaign ownership", "Claiming affiliate or GMV experience from content metrics"],
+  "required_behavior": ["Build the creator operating chain", "Mark sourcing as transferable", "Mark negotiation and GMV attribution as gaps", "Create safe wording and three-round follow-ups"],
+  "forbidden_behavior": ["Claim independent KOL campaign management", "Invent creators, rates, contacts, or sales"],
+  "expected_decisions": ["Use Creator/KOL route", "Narrow claims", "Offer a prospective creator-shortlist sample"],
+  "acceptable_uncertainties": ["Product economics", "Creator budget", "Attribution model"],
+  "evaluation": {"applicable_criteria": ["role_reality", "sample_protocol", "candidate_truth", "fit_mapping", "answer_evidence", "followup_stress", "work_sample_truth"], "minimum_total": 12, "mandatory_twos": ["candidate_truth", "answer_evidence", "followup_stress"]}
+}
