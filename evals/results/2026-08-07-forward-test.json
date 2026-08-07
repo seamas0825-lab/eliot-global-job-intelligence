@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "run_type": "independent-forward-test",
+  "skill_version": "0.1.0",
+  "case_id": "ad-hoc-global-creator-growth-manager",
+  "prompt_scope": "Use the Skill on a raw mixed-role JD and contradictory candidate claims; no browsing or file creation.",
+  "observed_behavior": [
+    "Marked the blended creator/ecommerce role provisional",
+    "Blocked Europe as insufficient market granularity",
+    "Preserved contributor recruitment as transferable rather than creator-campaign ownership",
+    "Blocked unsupported 30-creator and 28-percent-sales claims",
+    "Separated experience answers from hypothetical methods and learning gaps",
+    "Recommended only a clearly prospective work sample after market clarification"
+  ],
+  "automatic_failures": [],
+  "result": "pass",
+  "note": "Independent behavioral smoke test, not a scored full-suite benchmark."
+}

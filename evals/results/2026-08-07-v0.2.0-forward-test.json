@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "run_type": "independent-forward-test",
+  "skill_version": "0.2.0",
+  "case_id": "torras-first-run-artifact-revision",
+  "input_artifacts": [
+    "JOB_INTELLIGENCE_BRIEF.md",
+    "INTERVIEW_CHEATSHEET.md",
+    "EVIDENCE_AND_BENCHMARKS.csv"
+  ],
+  "observed_behavior": [
+    "Blocked finalization because comparable-brand and campaign operating-system evidence was absent",
+    "Required direct competitors, mechanism peers, recent campaigns, and one reconstructed commercial chain",
+    "Assigned Perplexity to benchmark and source discovery",
+    "Assigned Grok to recent practitioner and tool discovery with official-page verification",
+    "Assigned GPT to convergence, claim audit, and human-voice review",
+    "Omitted Gemini because U.S. macro structure was not a first-order blocker",
+    "Separated candidate-ready speech from coach notes",
+    "Rewrote answers without evidence IDs, internal states, or repeated defensive disclaimers",
+    "Preserved candidate ownership and metric boundaries in coach notes"
+  ],
+  "automatic_failures": [],
+  "result": "pass",
+  "note": "Independent behavioral smoke test over the raw V0.1 TORRAS artifacts; not a scored full-suite benchmark."
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "run_type": "structural-validation",
+  "skill_version": "0.2.0",
+  "run_at": "2026-08-06T22:35:19.033947+00:00",
+  "valid_cases": 13,
+  "case_ids": [
+    "browser-prompt-injection",
+    "china-social-to-europe-saas",
+    "company-no-public-social",
+    "conflicting-resume-data",
+    "distinct-ai-service-routing",
+    "dynamic-platform-inaccessible",
+    "insufficient-qualified-creators",
+    "missing-competitor-operating-system",
+    "multi-ai-shared-source",
+    "no-creator-experience-us-bd",
+    "operations-to-overseas-sales",
+    "robotic-interview-control-language",
+    "vague-overseas-market-jd"
+  ],
+  "passed": true,
+  "note": "Schema validation only; use --emit-prompts with an external harness for behavioral evaluation."
+}
