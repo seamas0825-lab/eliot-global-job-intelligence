@@ -52,7 +52,7 @@ Safe English wording:
 Likely follow-up:
 ```
 
-The fit matrix and “safe wording” are coach-side controls. Do not paste them directly into candidate speech. Use them to set the truth boundary, then rewrite the answer for interviewer intent and natural first-person delivery.
+The fit matrix and “safe wording” are audit-side controls. Keep their IDs in `work/answer-evidence-map.yaml`; do not paste them into the reader-facing cheatsheet or dashboard. Use human story names on the candidate surface, set the truth boundary backstage, then rewrite the answer for interviewer intent and natural first-person delivery.
 
 ## Automatic blocks
 
@@ -70,4 +70,4 @@ Block and rewrite any claim that:
 
 Show the conflicting statements, ask the candidate which is accurate, and keep the claim blocked until resolved. Do not average numbers or select the version that fits the JD best.
 
-Truthfulness should be achieved upstream through claim selection, not by making every spoken answer repeat a disclaimer. Keep verification status, metric warnings, and prohibited claims in coach notes unless the interviewer directly asks about them.
+Truthfulness should be achieved upstream through claim selection, not by making every spoken answer repeat a disclaimer. Keep verification status, metric warnings, prohibited claims, and stable IDs in the internal answer map unless the interviewer directly asks about the underlying fact.

@@ -2,18 +2,40 @@
 
 The final answer is spoken communication, not a compressed research report. Keep truth controls rigorous backstage and make candidate speech useful, specific, and human.
 
-## Separate two surfaces
+## Separate the reader and audit surfaces
 
 ```text
-CANDIDATE SAYS
+可以直接说
 Natural first-person answer that can be spoken as written.
 
-COACH NOTES
+INTERNAL ANSWER MAP
 Interviewer intent, evidence IDs, claim boundary, missing proof,
 likely follow-up, and conditions for narrowing or removing the answer.
 ```
 
-Never merge these surfaces. Evidence IDs and control labels may appear in coach notes, never inside the spoken paragraph.
+Never merge these surfaces. Put evidence IDs and control labels in `work/answer-evidence-map.yaml`, never in the reader-facing cheatsheet.
+
+## Start with a memory ladder
+
+Design for limited preparation time before writing the full question bank:
+
+- **P0:** at most five must-remember points.
+- **P1:** the next most useful answer anchors, with P0/P1 combined capped at ten.
+- **P2:** dashboard lookup material that should not consume working memory.
+
+Open the cheatsheet with “面试前 10 分钟” and “如果只剩 3 分钟”. Put the company model, role model, positioning, strongest two stories, critical truth boundaries, and reverse questions there.
+
+## Route questions out of order
+
+Do not assume the interviewer follows the cheatsheet sequence. Add a “乱序提问导航” that maps motivation, experience, ownership, method, data, failure, scenario, company/market, collaboration, and gap questions to reusable answer anchors.
+
+Use:
+
+```text
+Direct answer → one anchor → role relevance → stop
+```
+
+If the question is ambiguous, clarify briefly. If the interviewer interrupts or changes direction, answer the new intent directly. Never force the rest of a memorized script.
 
 ## Model interviewer intent first
 
@@ -23,7 +45,7 @@ Before writing an answer, record internally:
 | --- | --- |
 | Intent | What is the interviewer really testing: competence, ownership, judgment, motivation, communication, risk, or learning speed? |
 | Strong signal | What would a credible candidate demonstrate? |
-| Candidate proof | Which real story or decision can show it? |
+| Candidate proof | Which human-named story or decision can show it? |
 | Risk | What may be overstated, irrelevant, defensive, or unexplained? |
 | Follow-up | What will a skeptical interviewer ask next? |
 
@@ -32,7 +54,7 @@ Answer the intent, not merely the literal wording.
 ## Classify the question
 
 - **Experience:** use one real past event and a clear personal contribution.
-- **Method:** explain an operating choice and trade-off; distinguish practiced method from a proposed approach in coach notes.
+- **Method:** explain an operating choice and trade-off; distinguish practiced method from a proposed approach in the internal answer map.
 - **Judgment:** prioritize, diagnose, and explain why.
 - **Company/market:** show specific researched understanding and a useful point of view.
 - **Gap:** acknowledge the gap briefly, connect adjacent evidence, and state a credible way to perform or learn.
@@ -69,9 +91,9 @@ Avoid defensive scripts such as “I will not call this X” or “this is only 
 
 Do not force all five lines into every answer. Use the smallest honest combination.
 
-## Forbidden candidate-speech language
+## Forbidden reader-facing language
 
-Reject any spoken answer containing:
+Reject the reader-facing cheatsheet, not only spoken paragraphs, when it contains:
 
 - evidence IDs or schema terms such as `EXP-001`, `AST-002`, `FIT`, `CLM`, or `SRC`;
 - internal states such as `VERIFIED`, `TRANSFERABLE`, `LEARNING GAP`, `DO NOT CLAIM`, `BLOCKED`, or `HYPOTHETICAL APPROACH`;
@@ -80,7 +102,11 @@ Reject any spoken answer containing:
 - source citations, bracketed IDs, or English framework chains that a real candidate would not recite;
 - repeated apologies or gap disclaimers that crowd out positive evidence.
 
-The same information belongs in coach notes.
+The same information belongs in the internal answer map.
+
+## Explain necessary jargon
+
+Write the full term and a short plain-language explanation at first use. Also add the term to `GLOSSARY.md`. Prefer an ordinary Chinese phrase when the abbreviation is not needed in the interview.
 
 ## Before/after examples
 
@@ -114,7 +140,7 @@ Human:
 2. **Mechanics:** How did you prioritize, use data, handle failure, and choose the method?
 3. **Transfer:** What changes for this market, product, budget, or timeline?
 
-When an answer fails, narrow it in coach notes, select a better story, remove a metric, or block the answer. Never repair it with invented detail or add a paragraph of defensive disclaimers.
+When an answer fails, narrow it in the internal answer map, select a better story, remove a metric, or block the answer. Never repair it with invented detail or add a paragraph of defensive disclaimers.
 
 ## Human Voice Gate
 
@@ -125,8 +151,7 @@ Read every candidate answer aloud and ask:
 - Is there a person making decisions, or only frameworks and labels?
 - Can the interviewer picture the situation and personal contribution?
 - Is the gap proportionate rather than dominating the answer?
-- Are coach notes and source controls absent from the spoken words?
+- Are answer-map controls and source controls absent from the spoken words?
 - Does the answer invite a useful follow-up the candidate can survive?
 
 Fail the gate if any core answer sounds like compliance copy, a research memo, generic AI prose, or a disclaimer stack.
-

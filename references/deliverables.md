@@ -1,6 +1,6 @@
 # Deliverables
 
-Use only the artifacts needed for the run. A Standard Run produces three files. Join all files with stable IDs.
+Use only the artifacts needed for the run. Separate audit, candidate, and employer surfaces. A Standard Run keeps machine-readable evidence backstage and delivers one human-readable dashboard as the primary entry point. Follow [human-first delivery](human-first-delivery.md).
 
 ## Stable ID convention
 
@@ -17,7 +17,7 @@ Use only the artifacts needed for the run. A Standard Run produces three files. 
 - `CAM-###`: campaign or creator-program pattern
 - `TOOL-###`: tool/platform landscape record
 
-IDs are relational keys, not decorative labels. Every `SRC/SMP/BRAND/CAM/TOOL` ID referenced by a published Markdown artifact must resolve to exactly one CSV row. Every `EXP/AST/CLM/CON` ID referenced by candidate-facing coach notes must resolve to the candidate-evidence record. Never reuse one ID for different objects or create a display-only alias that is absent from the evidence packet.
+IDs are relational keys, not reader labels. Keep them in CSV or YAML audit files. Do not show them in candidate- or employer-facing Markdown/HTML. Every ID referenced by `work/answer-evidence-map.yaml` must resolve to exactly one evidence record. Never reuse one ID for different objects.
 
 ## JOB_INTELLIGENCE_BRIEF.md
 
@@ -38,28 +38,34 @@ IDs are relational keys, not decorative labels. Every `SRC/SMP/BRAND/CAM/TOOL` I
 
 ## INTERVIEW_CHEATSHEET.md
 
-Keep readable in ten minutes and separate two surfaces:
+Keep readable in ten minutes. Put the memory ladder and nonlinear question router before long answers. Do not show audit IDs anywhere in this reader-facing file.
 
-```text
-CANDIDATE SAYS: speakable answer with no IDs or control labels
-COACH NOTES: evidence IDs, truth boundary, follow-up risk, and missing proof
-```
+Store answer-to-evidence joins, truth boundaries, follow-up risks, and missing proof in `work/answer-evidence-map.yaml`, not in the cheatsheet.
 
 Include:
 
+- P0/P1/P2 priorities and a three-minute fallback;
 - one-sentence company and role models;
 - three priority business problems;
-- five evidenced strengths and their IDs;
+- five evidenced strengths with human-readable proof labels;
 - three honest gaps expressed naturally rather than as audit disclaimers;
 - 60-second introduction;
 - up to five core stories with 30/60/120-second variants where useful;
+- a nonlinear router by interviewer intent and bridge phrases;
 - ten high-probability questions with follow-up risks;
 - five accurate English phrases;
 - five reverse-interview questions;
-- prohibited or inflated claims;
 - work-sample talking points.
 
-Every experience answer must link to `EXP`, `AST`, or inspectable public evidence IDs in coach notes. Mark method-only responses as hypothetical in coach notes only. Candidate speech must not contain IDs, schema labels, source citations, verification warnings, or coaching instructions.
+Every experience answer must link to candidate evidence in the internal answer map. Mark method-only responses as hypothetical there. Candidate speech must not contain IDs, schema labels, source citations, verification warnings, or coaching instructions.
+
+## GLOSSARY.md
+
+Include only abbreviations or specialist terms that appear in the reader-facing package. On first use in the cheatsheet, add a short inline explanation; use the glossary for fuller role-specific meaning.
+
+## JOB_SEARCH_DASHBOARD.html
+
+Generate with `scripts/build_dashboard.py`. Make this the primary candidate-facing artifact. It combines Markdown and CSV into a responsive offline page with priority cards, question routing, visual evidence summaries, filters, direct links, and the complete readable package. Hide audit IDs from the rendered interface.
 
 ## EVIDENCE_AND_BENCHMARKS.csv
 
@@ -89,20 +95,33 @@ practitioner_voice | authoritative | reporting | vendor | ai_lead
 
 The CSV must contain the evidence behind benchmark lessons, not only the hiring company and individual accounts. Keep enum fields exact; put qualifiers and source-specific detail in `direct_evidence`, `risk`, or `inference`, not inside enum values.
 
-## Optional internal artifacts
+## Required internal audit artifacts for Standard/Deep
 
-- `job-run-state.yaml`
-- `ROLE_OPERATING_MAP.md`
-- `CANDIDATE_FIT_MATRIX.md`
-- `CLAIM_BOUNDARY.md`
-- `MOCK_INTERVIEW.md`
-- role-specific shortlist CSV
-- prospective work sample
+- `work/job-run-state.yaml`
+- `work/candidate-evidence.yaml`
+- `work/answer-evidence-map.yaml`
+- `outputs/EVIDENCE_AND_BENCHMARKS.csv`
+
+The CSV is a structured ledger and Feishu/Base import source. It is not the primary reading experience.
+
+## Optional internal audit artifacts
+
+- `work/ROLE_OPERATING_MAP.md`
+- `work/CANDIDATE_FIT_MATRIX.md`
+- `work/CLAIM_BOUNDARY.md`
+- role-specific shortlist CSV under `work/`
+
+## Optional reader-facing artifacts
+
+- `outputs/MOCK_INTERVIEW.md` using human story names and no audit IDs
+- `ROLE_OPPORTUNITY_BRIEF.md` and generated `ROLE_OPPORTUNITY_BRIEF.html`
+- `work/evidence-screenshots.json` plus 2–6 public-safe source screenshots when a role brief is created
 
 Verify all created files exist, links open when access permits, CSV rows match headers, and blocked claims do not appear as achievements. For Standard or Deep runs, execute:
 
 ```bash
-python scripts/validate_run_package.py <run-root> --require-state
+python scripts/build_dashboard.py <run-root>
+python scripts/validate_run_package.py <run-root> --require-state --require-reader-layer
 ```
 
 The run root normally contains `outputs/` and `work/`. A failed validation blocks delivery; do not mark a package structurally valid by manual assertion after the validator reports unresolved IDs or schema drift.
