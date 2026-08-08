@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "run_type": "structural-validation",
+  "skill_version": "0.3.0",
+  "run_at": "2026-08-08T01:54:25Z",
+  "package_validation": {
+    "passed": true,
+    "skill_lines": 275,
+    "markdown_files": 35,
+    "eval_cases": 15
+  },
+  "run_package_fixture": {
+    "passed": true,
+    "csv_rows": 4,
+    "candidate_references": 3,
+    "reader_layer_required": true,
+    "candidate_dashboard_generated": true,
+    "role_opportunity_brief_generated": true,
+    "public_safe_screenshots_embedded": 2
+  },
+  "browser_readback": {
+    "adapter": "EGO Browser",
+    "candidate_page": {
+      "dashboard_version": "0.3.0",
+      "pdf_export_control": true,
+      "cross_links_to_role_brief": 0,
+      "visible_audit_ids": 0,
+      "horizontal_overflow": false,
+      "apple_inspired_visual_tokens_verified": true
+    },
+    "role_opportunity_brief": {
+      "dashboard_version": "0.3.0",
+      "pdf_export_control": true,
+      "cross_links_to_candidate_page": 0,
+      "visible_candidate_ids": 0,
+      "forbidden_internal_presentation_phrases": 0,
+      "embedded_screenshots": 2,
+      "screenshot_source_metadata_complete": true,
+      "horizontal_overflow": false,
+      "apple_inspired_visual_tokens_verified": true
+    }
+  },
+  "eval_validation": {
+    "valid_cases": 15,
+    "new_case": "human-first-nonlinear-dashboard",
+    "passed": true
+  },
+  "passed": true
+}
