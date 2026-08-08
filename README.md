@@ -1,6 +1,6 @@
 # Eliot Global Job Intelligence
 
-[![Version](https://img.shields.io/badge/version-0.3.0-blue)](VERSION)
+[![Version](https://img.shields.io/badge/version-0.3.1-blue)](VERSION)
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-compatible-6f42c1)](https://agentskills.io/specification)
 
 **Created by Eliot（梁一孟）.** An Agent Skills-compatible evidence-to-interview operating system for global-role research and truthful interview preparation. It reverse-engineers the employer's real hiring problem, reconstructs how the work is performed in the target market, maps the candidate's defensible evidence, and turns the result into natural interview answers and a credible work sample.
@@ -51,6 +51,7 @@ Role routing changes the benchmark unit, operating chain, sample type, and inter
 - **Benchmark Intelligence:** reconstruct how comparable brands run the commercial mechanism; isolated creator or post lists are insufficient.
 - **Browser Capability:** verify observation, interaction, login-state reuse, and readback before authenticated or dynamic research.
 - **Candidate Truth:** classify ownership, participation, tools, metrics, and evidence without upgrading the candidate's experience.
+- **Resume Grounding:** when a resume is supplied, build a complete truthful self-introduction and ground every core spoken answer in an actual company, role, product, market, project, action, or defensible result from that resume.
 - **Evidence-to-Answer:** link every experience answer to inspectable candidate evidence; label hypothetical approaches honestly.
 - **Human Voice:** keep internal control language in the backstage answer map and candidate-ready speech natural.
 - **Follow-up Stress:** test ownership, method, trade-offs, failure, and transfer for three skeptical rounds.
@@ -97,7 +98,7 @@ Every AI-supplied citation must be opened at the original source before it becom
 The Skill separates three surfaces:
 
 - **Audit layer:** stable IDs, CSV, and YAML preserve source and claim traceability for the agent.
-- **Candidate layer:** no visible IDs; starts with at most five P0 must-remember points, a three-minute fallback, and an out-of-order question router.
+- **Candidate layer:** no visible IDs; starts with at most five P0 must-remember points, a three-minute fallback, and an out-of-order question router. Its introduction and core answers use the candidate's actual career narrative rather than generic role language.
 - **Company-facing layer:** a bounded role opportunity brief that demonstrates judgment without exposing the resume, coach notes, or private evidence.
 
 Necessary abbreviations are expanded on first use and explained in a role-specific glossary. Raw CSV remains available for validation and Feishu/Base import, but the candidate does not need to open it.
@@ -198,7 +199,7 @@ python3 scripts/build_dashboard.py /path/to/run-root \
 python3 scripts/validate_run_package.py /path/to/run-root --require-state --require-reader-layer
 ```
 
-The run-package validator checks exact CSV headers, canonical enums, stable and unique IDs, internal answer-to-evidence links, dates, URLs, readiness fields, sample-count drift, priority/navigation sections, jargon explanations, visible-ID leakage, and generated dashboard markers. A failed validation blocks structural sign-off; it does not get weakened to make a package pass.
+The run-package validator checks exact CSV headers, canonical enums, stable and unique IDs, internal answer-to-evidence links, dates, URLs, readiness fields, sample-count drift, resume-grounding fields, priority/navigation sections, jargon explanations, visible-ID leakage, and generated dashboard markers. The interview linter also checks for a complete identity-led introduction and human-readable company/role anchors when candidate evidence is present. A failed validation blocks structural sign-off; it does not get weakened to make a package pass.
 
 ## Repository structure
 
@@ -223,4 +224,4 @@ Do not commit resumes, account identifiers, passwords, one-time codes, API keys,
 
 ## Version
 
-Current version: **0.3.0**. See [VERSION](VERSION) and the dated structural-validation result in [`evals/results`](evals/results/).
+Current version: **0.3.1**. See [VERSION](VERSION) and the dated structural-validation result in [`evals/results`](evals/results/).

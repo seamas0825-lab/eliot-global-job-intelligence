@@ -77,6 +77,33 @@ Direct answer → concrete situation → what I did/thought → result or learni
 - End with a job-relevant insight, not an audit warning.
 - Keep 30-second answers focused on one point; let 60-second versions add mechanics and judgment.
 
+## Ground every core answer in the resume
+
+When a resume or candidate evidence file is available, do not write a generic answer first and merely attach an evidence ID backstage. The spoken answer itself must contain a human-recognizable resume anchor.
+
+Before drafting, create a compact spoken profile:
+
+```text
+Safe name form:
+Current base (not assumed hometown):
+Latest company and title:
+Latest product/category, market, and platforms:
+Prior company/context and title:
+Two or three strongest named stories:
+Missing identity or timeline fields:
+```
+
+The main self-introduction should normally include a greeting, truthful name form, current base, reconciled seniority, latest company/title/scope, prior context, one or two concrete responsibilities or results, and why the target role follows naturally. If the resume only says “邓女士,” write “我姓邓”; do not invent a full name. If it only shows a current city, write “目前在深圳工作和生活”; do not convert it into a hometown claim.
+
+For every core experience-based answer, require at least one spoken anchor such as:
+
+- the actual company, team, client, or project context;
+- the actual product/category, market, platform, or audience;
+- the candidate's specific action, handoff, decision, or result;
+- a named campaign, content pillar, workflow, or failure the candidate can explain live.
+
+Reject an answer if another applicant in the same job family could say it unchanged. Generic frameworks may summarize the learning only after a concrete resume story has made the answer personal.
+
 ## Natural gap pattern
 
 Avoid defensive scripts such as “I will not call this X” or “this is only transferable.” Say:
@@ -150,6 +177,8 @@ Read every candidate answer aloud and ask:
 - Does it answer what the interviewer wants to know in the first two sentences?
 - Is there a person making decisions, or only frameworks and labels?
 - Can the interviewer picture the situation and personal contribution?
+- Does the answer name the actual resume context, or could another candidate say it unchanged?
+- Does the self-introduction sound like a real career narrative rather than a positioning paragraph?
 - Is the gap proportionate rather than dominating the answer?
 - Are answer-map controls and source controls absent from the spoken words?
 - Does the answer invite a useful follow-up the candidate can survive?

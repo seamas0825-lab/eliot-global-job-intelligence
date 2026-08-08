@@ -24,6 +24,8 @@ Store `EXP-001`, `AST-001`, `CLM-001`, `SRC-001`, and similar keys in CSV or YAM
 
 ## Build the candidate memory ladder
 
+Before building the ladder, extract the candidate's spoken resume profile: safe name form, current base, latest company/title, prior company/context, product/category, market/platform scope, and two or three concrete stories. The candidate layer must use these ordinary human labels. Audit IDs backstage are necessary for traceability but do not count as personalization.
+
 Put these sections at the beginning of `INTERVIEW_CHEATSHEET.md` in this order:
 
 1. **面试前 10 分钟:** the three messages the candidate must remember, the one-sentence positioning, the two strongest stories, and the two risks that must not be overstated.
@@ -38,6 +40,8 @@ Assign each item a priority:
 - **P2 — lookup only:** detail that belongs in the dashboard, not working memory.
 
 Do not create more than five P0 items or ten combined P0/P1 answer anchors.
+
+The introduction card must be a complete, truthful career narrative. Check that it includes the available greeting/name/base, latest role and specific scope, prior context, strongest working pattern, and target-role motivation. When an identity field is missing, use a natural truthful substitute or omit it; never guess. Check every core experience card for at least one actual resume anchor. If a card could be reused unchanged for another candidate, rewrite it before delivery.
 
 ## Prepare for nonlinear interviews
 
@@ -123,4 +127,4 @@ python scripts/build_dashboard.py <run-root>
 python scripts/validate_run_package.py <run-root> --require-state --require-reader-layer
 ```
 
-Fail delivery when priority/navigation sections are missing, reader-facing IDs leak, abbreviations are unexplained, or the dashboard cannot be generated from the run package.
+Fail delivery when priority/navigation sections are missing, reader-facing IDs leak, abbreviations are unexplained, the resume-grounding check fails, or the dashboard cannot be generated from the run package.

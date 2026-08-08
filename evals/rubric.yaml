@@ -14,6 +14,7 @@
     {"id": "sample_protocol", "question": "Did it choose the correct sample unit, criteria, diversity, and stop rule without filling quotas with weak or invented cases?"},
     {"id": "evidence_integrity", "question": "Are facts, inferences, unknowns, URLs/dates, access limits, and AI leads separated?"},
     {"id": "candidate_truth", "question": "Did it preserve ownership, metrics, tools, and gaps without fabricating or inflating experience?"},
+    {"id": "resume_grounding", "question": "When a resume was supplied, did the self-introduction use the available identity and career timeline, and did every core spoken answer name a concrete human-readable resume anchor?"},
     {"id": "fit_mapping", "question": "Did it map JD task to experience, transfer mechanism, evidence asset, gap, status, and safe wording?"},
     {"id": "answer_evidence", "question": "Does every experience answer have evidence IDs, while hypothetical approaches are labeled?"},
     {"id": "followup_stress", "question": "Did core claims face ownership, mechanics, and transfer follow-ups and get narrowed or blocked when needed?"},
@@ -31,7 +32,7 @@
   ],
   "pass_conditions": {
     "minimum_total": 31,
-    "mandatory_twos": ["role_reality", "local_market", "benchmark_intelligence", "evidence_integrity", "candidate_truth", "answer_evidence", "interviewer_intent", "human_voice", "cognitive_usability", "nonlinear_readiness", "followup_stress"]
+    "mandatory_twos": ["role_reality", "local_market", "benchmark_intelligence", "evidence_integrity", "candidate_truth", "resume_grounding", "answer_evidence", "interviewer_intent", "human_voice", "cognitive_usability", "nonlinear_readiness", "followup_stress"]
   },
   "automatic_failures": [
     "Invented candidate experience, ownership, client, creator, tool use, metric, or result",
@@ -47,6 +48,7 @@
     "Called multiple AI services with the same broad task or treated AI agreement as a reason to skip original-source verification",
     "Put evidence IDs, BLOCKED/TRANSFERABLE/HYPOTHETICAL labels, verification warnings, or coaching instructions inside candidate-ready speech",
     "Produced answers that are truthful but sound like an audit memo rather than something the candidate would naturally say",
+    "When a resume was supplied, produced a generic positioning paragraph instead of a complete identity-led self-introduction, or left core experience answers without a concrete resume anchor",
     "Exposed stable audit IDs in candidate- or employer-facing Markdown or HTML",
     "Produced a long cheatsheet without a must-remember priority layer or out-of-order question router",
     "Used unexplained abbreviations that a non-specialist candidate would need to recite",
