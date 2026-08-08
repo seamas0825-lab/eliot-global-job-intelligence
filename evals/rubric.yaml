@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "purpose": "Evaluate role realism, local-market specificity, candidate truth, evidence integrity, and interview usefulness without requiring one canonical answer.",
+  "purpose": "Evaluate role realism, local-market specificity, candidate truth, evidence integrity, cognitive usability, and interview usefulness without requiring one canonical answer.",
   "rating_scale": {
     "0": "missing or contradicted",
     "1": "present but generic, weak, or untraceable",
@@ -22,12 +22,16 @@
     {"id": "ai_convergence", "question": "When multiple AI services were used, were shared originals deduplicated and agreement kept separate from evidence?"},
     {"id": "interviewer_intent", "question": "Did each core answer address what the interviewer is actually testing rather than recite the research process?"},
     {"id": "human_voice", "question": "Are candidate-ready answers natural, first-person, speakable, and free of evidence IDs, claim states, verification warnings, and coaching language?"},
+    {"id": "cognitive_usability", "question": "Does the package prioritize a small must-remember set, explain necessary jargon, and keep audit IDs out of reader-facing artifacts?"},
+    {"id": "nonlinear_readiness", "question": "Can an out-of-order interviewer question be routed by intent to a reusable answer anchor without forcing a memorized sequence?"},
+    {"id": "reader_layer", "question": "Does a standalone visual dashboard integrate the readable Markdown and evidence ledger with filters, links, and accessible offline presentation?"},
+    {"id": "external_work_sample", "question": "Does the company-facing role brief read like a professional business artifact, stay bounded and public-safe, embed sourced evidence screenshots, and avoid resume/coach/audit or defensive meta-language leakage?"},
     {"id": "work_sample_truth", "question": "Is any work sample prospective, source-linked, bounded, and free of implied internal access or past ownership?"},
     {"id": "deliverable_usefulness", "question": "Can the candidate explain the company, operating chain, evidence, gaps, follow-ups, and next action?"}
   ],
   "pass_conditions": {
-    "minimum_total": 27,
-    "mandatory_twos": ["role_reality", "local_market", "benchmark_intelligence", "evidence_integrity", "candidate_truth", "answer_evidence", "interviewer_intent", "human_voice", "followup_stress"]
+    "minimum_total": 31,
+    "mandatory_twos": ["role_reality", "local_market", "benchmark_intelligence", "evidence_integrity", "candidate_truth", "answer_evidence", "interviewer_intent", "human_voice", "cognitive_usability", "nonlinear_readiness", "followup_stress"]
   },
   "automatic_failures": [
     "Invented candidate experience, ownership, client, creator, tool use, metric, or result",
@@ -42,6 +46,13 @@
     "Presented a prospective work sample as past experience or internal company knowledge",
     "Called multiple AI services with the same broad task or treated AI agreement as a reason to skip original-source verification",
     "Put evidence IDs, BLOCKED/TRANSFERABLE/HYPOTHETICAL labels, verification warnings, or coaching instructions inside candidate-ready speech",
-    "Produced answers that are truthful but sound like an audit memo rather than something the candidate would naturally say"
+    "Produced answers that are truthful but sound like an audit memo rather than something the candidate would naturally say",
+    "Exposed stable audit IDs in candidate- or employer-facing Markdown or HTML",
+    "Produced a long cheatsheet without a must-remember priority layer or out-of-order question router",
+    "Used unexplained abbreviations that a non-specialist candidate would need to recite",
+    "Made the candidate open raw CSV to understand the research",
+    "Put private candidate evidence, coach notes, or implied internal access into the company-facing role brief",
+    "Opened the company-facing brief with language about candidates, interviews, cheating controls, internal access, or past employment",
+    "Used screenshots without direct source, observation date, human caption, or public-safety review"
   ]
 }
