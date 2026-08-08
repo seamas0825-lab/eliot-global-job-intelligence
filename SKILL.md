@@ -1,6 +1,6 @@
 ---
 name: eliot-global-job-intelligence
-description: "Eliot（梁一孟）的出海岗位情报与面试准备系统。用于海外社媒运营、TikTok/KOL/Creator Partnership、Affiliate BD、海外销售/商务拓展、跨境电商与 Affiliate Growth 岗位；当用户提供 JD、公司、目标市场、简历或作品，并需要公司与竞品研究、当地工作链路和对标品牌还原、Grok/Perplexity/Gemini/GPT 研究分工、真实样本采集、候选人证据映射、自然口语化求职小抄、模拟面试或可展示工作样本时使用。"
+description: "Eliot（梁一孟）的出海岗位情报与面试准备系统。用于海外社媒运营、TikTok/KOL/Creator Partnership、Affiliate BD、海外销售/商务拓展、跨境电商与 Affiliate Growth 岗位；当用户提供 JD、公司、目标市场、简历或作品，并需要公司与竞品研究、当地工作链路和对标品牌还原、Grok/Perplexity/Gemini/GPT 研究分工、真实样本采集、候选人证据映射、优先级与乱序应答小抄、术语解释、可视化求职网页、模拟面试或面向公司的公开工作样本时使用。"
 ---
 
 # Eliot Global Job Intelligence
@@ -42,7 +42,7 @@ Choose the lowest-cost mode that matches the application risk.
 | Mode | Use when | Evidence effort | Required output |
 | --- | --- | --- | --- |
 | **Light** | One narrow, reversible question dominates. | 3–5 opened sources; candidate evidence supplied by the user. | Fit note, claim boundaries, priority questions. |
-| **Standard** | Default for a real application or interview. | 2–4 source-role branches, a competitor operating-system benchmark, and about 8–15 material samples when available. | Three-file package and stress test. |
+| **Standard** | Default for a real application or interview. | 2–4 source-role branches, a competitor operating-system benchmark, and about 8–15 material samples when available. | Priority-first reader package, dashboard, audit layer, and stress test. |
 | **Deep** | Senior, multilingual, regulated, reputation-sensitive, or multi-market role. | Independent source roles, contradiction search, local-language lens, explicit checkpoints. | Auditable dossier, staged work sample, risk memo. |
 
 Treat counts as effort guardrails, not proof thresholds. Stop when new evidence repeats known mechanisms and remaining uncertainty is cheaper to resolve in the interview.
@@ -67,6 +67,7 @@ Treat counts as effort guardrails, not proof thresholds. Stop when new evidence 
 - Prompt-injection and browser safety: [references/browser-security.md](references/browser-security.md)
 - Access, evidence, contradiction, and sample failures: [references/failure-handling.md](references/failure-handling.md)
 - Required deliverables and stable IDs: [references/deliverables.md](references/deliverables.md)
+- Human-first priorities, jargon, dashboard, and employer-facing presentation: [references/human-first-delivery.md](references/human-first-delivery.md)
 
 For Standard or Deep work, copy [schemas/job-run-state.yaml](schemas/job-run-state.yaml) into the working directory and update it as evidence changes. Use [schemas/candidate-evidence.yaml](schemas/candidate-evidence.yaml) and [schemas/benchmark-record.yaml](schemas/benchmark-record.yaml) as record contracts, not as decorative forms.
 
@@ -161,6 +162,10 @@ Before any authenticated, dynamic-platform, or web-AI branch, follow [references
 
 Do not bypass login walls, CAPTCHA, rate limits, geo controls, or platform restrictions. Do not claim current tool capabilities without a live harmless probe.
 
+On macOS, prefer EGO Browser plus the `ego-browser` Skill. Run independent evidence jobs in separate EGO Task Spaces or bounded parallel subtasks when the runtime supports them, then converge and deduplicate original sources. Do not parallelize shared writes, dependent decisions, sensitive login steps, or publication.
+
+On Windows, prefer Browser Use plus Web Access. Do not promise EGO-equivalent isolated task spaces, login-state separation, or multi-window parallelism; use sequential or small-batch work with readback after every meaningful action. Follow [references/browser-capability-gate.md](references/browser-capability-gate.md).
+
 ### 9. Pass the Candidate Truth Gate
 
 Classify every relevant experience as:
@@ -197,7 +202,7 @@ Conclusion → Context → Actions → Result → Relevance to this role
 
 Create 30-second, 60-second, and 2-minute versions only for high-priority questions. Produce Chinese reasoning and English expression when relevant; preserve meaning rather than translating jargon literally.
 
-Keep evidence IDs, claim states, transfer labels, verification warnings, and risk controls in coach notes. Do not put them inside the words the candidate is supposed to say.
+Keep evidence IDs, claim states, transfer labels, verification warnings, and risk controls in `work/answer-evidence-map.yaml`. Do not put them inside the reader-facing cheatsheet or the words the candidate is supposed to say.
 
 ### 12. Pass the Human Voice Gate
 
@@ -205,18 +210,20 @@ For every core question, first infer what the interviewer wants to learn: compet
 
 Candidate-ready speech must sound natural when read aloud. Lead with the useful answer, use one concrete story, state a limitation only when it materially answers the question, and end with role relevance. Do not make the candidate recite research methodology, evidence IDs, internal labels, defensive legal language, or repeated disclaimers.
 
-Keep two separate blocks:
+Keep two separate surfaces:
 
 ```text
-CANDIDATE SAYS: natural spoken answer only
-COACH NOTES: evidence IDs, truth boundary, missing proof, follow-up risk
+可以直接说：natural spoken answer only
+INTERNAL ANSWER MAP: evidence IDs, truth boundary, missing proof, follow-up risk
 ```
 
 Reject answers containing internal phrases such as `EXP-001`, `AST-002`, `BLOCKED`, `HYPOTHETICAL APPROACH`, “本次材料未验证”, “我不会把它说成…”, or “如果无法解释我就不使用…”. Convert the same truth boundary into ordinary human speech. Follow [references/interview-answer-system.md](references/interview-answer-system.md).
 
 Before delivery, run `python scripts/lint_interview_cheatsheet.py INTERVIEW_CHEATSHEET.md`. A failed lint blocks delivery until candidate-speech sections are rewritten.
 
-For Standard or Deep runs, also run `python scripts/validate_run_package.py <run-root> --require-state`. This validation must pass before the package is marked structurally valid. Fix noncanonical CSV enums, unresolved cross-file IDs, duplicate IDs, malformed dates/URLs, state/sample-count drift, and candidate-evidence reference gaps rather than weakening the validator.
+Start the cheatsheet with at most five P0 must-remember points, a three-minute fallback, and a nonlinear question router by interviewer intent. Cap combined P0/P1 answer anchors at ten. Explain every necessary abbreviation on first use and in `GLOSSARY.md`. Do not expose stable IDs anywhere in reader-facing Markdown or HTML. Follow [references/human-first-delivery.md](references/human-first-delivery.md).
+
+For Standard or Deep runs, build the reader layer with `python scripts/build_dashboard.py <run-root>`, then run `python scripts/validate_run_package.py <run-root> --require-state --require-reader-layer`. This validation must pass before the package is marked structurally valid. Fix noncanonical CSV enums, unresolved internal IDs, duplicate IDs, malformed dates/URLs, state/sample-count drift, candidate-evidence reference gaps, reader-facing ID leaks, missing priority/navigation sections, and dashboard failures rather than weakening the validator.
 
 ### 13. Pass the Follow-up Stress Test Gate
 
@@ -230,7 +237,9 @@ If an answer fails, narrow the claim, replace it with a transferable mechanism, 
 
 ### 14. Generate a work sample only after truth mapping
 
-Make the artifact explicitly prospective: a proposed plan, mock shortlist, account map, audit, or 30-day framework based on public evidence. Do not imply access to internal data or that hypothetical outputs were past achievements.
+Keep the artifact internally bounded as a proposed plan, mock shortlist, account map, audit, or 30-day framework derived from observable evidence. Do not imply access to internal data or that hypothetical outputs were past achievements; do not turn this control boundary into a self-conscious label in the external page.
+
+When the candidate wants to demonstrate role understanding, create `ROLE_OPPORTUNITY_BRIEF.md` and generate `ROLE_OPPORTUNITY_BRIEF.html`. Capture 2–6 public-safe screenshots from the most decision-relevant original pages during research and record them in `work/evidence-screenshots.json`; embed them with a human caption, source name, observation date, and direct link. Exclude browser chrome, login state, private data, AI-answer screenshots, the resume, coach notes, candidate evidence, stable IDs, hidden contacts, and private sources. Do not put “for the interviewer,” “candidate,” “not internal access,” or similar self-conscious control language on the page. Put normal scope and assumptions at the end. Use Apple-inspired product-storytelling restraint without copying a specific page. Keep the candidate and role-brief HTML files standalone and unlinked; give each its own PDF export control. Create PPT only when the user asks and a presentation tool is available.
 
 ## Enforce hard gates
 
@@ -243,6 +252,7 @@ Do not publish the final package until:
 - **Candidate Truth:** no fabricated or inflated experience, ownership, metric, tool, client, or result remains.
 - **Evidence-to-Answer:** each experience answer has a traceable evidence ID; hypotheticals are labeled.
 - **Human Voice:** candidate-ready answers contain no internal control language and pass a read-aloud interviewer-intent test.
+- **Human-first Reader:** P0/P1 priorities, three-minute fallback, nonlinear routing, jargon explanations, and the standalone dashboard are present; visible IDs are absent.
 - **Follow-up Stress:** core claims survive three rounds or are narrowed/blocked.
 - **Multi-AI Convergence:** shared original sources are deduplicated; model agreement alone is not evidence.
 
@@ -250,14 +260,15 @@ If Candidate Truth fails, the result is **BLOCKED**, not “best effort.” Role
 
 ## Deliver the Standard Run
 
-Create:
+Create the candidate-facing layer:
 
 1. `JOB_INTELLIGENCE_BRIEF.md`
 2. `INTERVIEW_CHEATSHEET.md`
-3. `EVIDENCE_AND_BENCHMARKS.csv`
+3. `GLOSSARY.md`
+4. `JOB_SEARCH_DASHBOARD.html` as the primary reading entry point
 
-Use [references/deliverables.md](references/deliverables.md). Keep research, claims, answers, and samples joined by stable IDs such as `SRC-001`, `SMP-001`, `EXP-001`, `CLM-001`, and `ANS-001`.
+Keep the audit layer in `EVIDENCE_AND_BENCHMARKS.csv`, `work/candidate-evidence.yaml`, and `work/answer-evidence-map.yaml`. Use [references/deliverables.md](references/deliverables.md). Preserve stable joins backstage, but use human labels and direct links on the reader surface.
 
 Do not use one `verified` boolean to imply both file integrity and candidate-fact certainty. Record package validation, candidate-fact readiness, and interview readiness separately in `job-run-state.yaml`.
 
-Finish when the candidate can explain the company, describe the local operating chain, defend every material claim, state the real gaps, answer likely follow-ups, and show one truthful work sample without another strategy meeting.
+Finish when the candidate can grasp the P0 points in ten minutes, route an out-of-order question to a reusable answer anchor, explain necessary jargon, explore the research visually, defend every material claim, state the real gaps, and show one truthful public work sample without another strategy meeting.
