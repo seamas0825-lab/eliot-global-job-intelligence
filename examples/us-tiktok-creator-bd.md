@@ -37,7 +37,7 @@ If current discovery/CRM/affiliate tools are material, use Grok for recent pract
 
 Weak: “I independently managed overseas influencer campaigns.”
 
-### CANDIDATE SAYS
+### 可以直接说
 
 “我之前招募过英语出镜人，主要负责画像、找人、英文沟通、筛选和后续推进。这段经历让我对怎么判断人选是否合适、怎么把沟通推进到下一步比较熟悉。达人佣金和 GMV 归因我还没有独立负责过，所以如果进入这个岗位，我会先从名单质量和外联推进做起，再在主管把关下补齐商务和归因。”
 
