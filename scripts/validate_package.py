@@ -25,6 +25,7 @@ EXPECTED_CASES = {
     "distinct-ai-service-routing",
     "robotic-interview-control-language",
     "run-package-id-and-enum-drift",
+    "human-first-nonlinear-dashboard",
 }
 REQUIRED = {
     "SKILL.md", "VERSION", "agents/openai.yaml",
@@ -32,6 +33,11 @@ REQUIRED = {
     "schemas/benchmark-record.yaml", "evals/rubric.yaml",
     "scripts/run_evals.py", "scripts/lint_interview_cheatsheet.py",
     "scripts/validate_run_package.py",
+    "scripts/build_dashboard.py", "references/human-first-delivery.md",
+    "templates/glossary.md", "templates/role-opportunity-brief.md",
+    "schemas/answer-evidence-map.yaml", "schemas/evidence-screenshots.json",
+    "assets/dashboard-theme.css",
+    "assets/dashboard.js",
 }
 
 
@@ -80,7 +86,7 @@ def main():
         failures.append(f"eval case set mismatch: found {sorted(found_cases)}")
 
     for path in ROOT.rglob("*"):
-        if not path.is_file() or "results" in path.parts or "__pycache__" in path.parts:
+        if not path.is_file() or "results" in path.parts or "__pycache__" in path.parts or ".git" in path.parts:
             continue
         try:
             text = path.read_text(encoding="utf-8")

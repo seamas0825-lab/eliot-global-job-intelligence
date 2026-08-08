@@ -46,6 +46,7 @@ PREFIX_BY_TYPE = {
 }
 PUBLIC_ID = re.compile(r"\b(?:SRC|SMP|BRAND|CAM|TOOL)-\d{3}\b")
 CANDIDATE_ID = re.compile(r"\b(?:EXP|AST|CLM|CON)-\d{3}\b")
+READER_ID = re.compile(r"\b(?:SRC|SMP|BRAND|CAM|TOOL|EXP|AST|FIT|CLM|ANS|GAP|OPS|CON)-\d{3}\b")
 ID_SHAPE = re.compile(r"^(SRC|SMP|BRAND|CAM|TOOL)-\d{3}$")
 ISO_DATE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 HTTP_URL = re.compile(r"^https?://[^\s]+$")
@@ -76,7 +77,7 @@ def state_scalar(text, key):
     return match.group(1).strip() if match else None
 
 
-def validate(run_root, require_state=False):
+def validate(run_root, require_state=False, require_reader_layer=False):
     output_dir, work_dir = locate_dirs(run_root)
     failures, warnings = [], []
     required = {
@@ -84,6 +85,12 @@ def validate(run_root, require_state=False):
         "cheatsheet": output_dir / "INTERVIEW_CHEATSHEET.md",
         "csv": output_dir / "EVIDENCE_AND_BENCHMARKS.csv",
     }
+    if require_reader_layer:
+        required.update({
+            "glossary": output_dir / "GLOSSARY.md",
+            "dashboard": output_dir / "JOB_SEARCH_DASHBOARD.html",
+            "answer_map": work_dir / "answer-evidence-map.yaml",
+        })
     for label, path in required.items():
         if not path.exists():
             failures.append(f"missing required {label}: {path}")
@@ -138,7 +145,9 @@ def validate(run_root, require_state=False):
         warnings.append(f"CSV IDs not referenced by Markdown: {len(unreferenced)}")
 
     candidate_path = work_dir / "candidate-evidence.yaml"
-    candidate_refs = set(CANDIDATE_ID.findall(markdown_text))
+    answer_map_path = work_dir / "answer-evidence-map.yaml"
+    answer_map_text = answer_map_path.read_text(encoding="utf-8") if answer_map_path.exists() else ""
+    candidate_refs = set(CANDIDATE_ID.findall(markdown_text + "\n" + answer_map_text))
     candidate_defs = candidate_definitions(candidate_path)
     if candidate_refs and not candidate_path.exists():
         failures.append(f"candidate IDs are referenced but evidence file is missing: {candidate_path}")
@@ -149,7 +158,82 @@ def validate(run_root, require_state=False):
             f"{unresolved_candidate}"
         )
 
-    _, interview_failures = lint_interview(required["cheatsheet"])
+    if require_reader_layer:
+        leaked = sorted(set(READER_ID.findall(markdown_text)))
+        if leaked:
+            failures.append(f"reader-facing Markdown contains audit IDs: {leaked}")
+        if not candidate_refs:
+            failures.append("answer-evidence-map contains no candidate evidence or claim IDs")
+        dashboard = required["dashboard"].read_text(encoding="utf-8") if required["dashboard"].exists() else ""
+        if 'data-dashboard-version="0.3.0"' not in dashboard:
+            failures.append("candidate dashboard missing v0.3.0 marker")
+        if "data-export-pdf" not in dashboard:
+            failures.append("candidate dashboard missing PDF export control")
+        if "ROLE_OPPORTUNITY_BRIEF.html" in dashboard:
+            failures.append("candidate dashboard must not link to the independent role opportunity brief")
+        if re.search(r"\b(?:EXP|AST|FIT|CLM|ANS|CON)-\d{3}\b", dashboard):
+            failures.append("candidate dashboard exposes candidate-side audit IDs")
+        role_brief_source = output_dir / "ROLE_OPPORTUNITY_BRIEF.md"
+        role_brief_html = output_dir / "ROLE_OPPORTUNITY_BRIEF.html"
+        if role_brief_source.exists() and not role_brief_html.exists():
+            failures.append("role opportunity Markdown exists but ROLE_OPPORTUNITY_BRIEF.html is missing")
+        if role_brief_html.exists():
+            employer_text = role_brief_html.read_text(encoding="utf-8")
+            if "data-export-pdf" not in employer_text:
+                failures.append("role opportunity brief missing PDF export control")
+            if "JOB_SEARCH_DASHBOARD.html" in employer_text:
+                failures.append("role opportunity brief must not link to the independent candidate dashboard")
+            if READER_ID.search(employer_text):
+                failures.append("role opportunity brief exposes audit IDs")
+            for phrase in (
+                "给面试官", "面试官", "候选人", "求职者", "不代表内部访问", "既往任职",
+                "历史任职", "Prospective work sample", "candidate work sample",
+                "for the interviewer", "interviewer", "applicant",
+            ):
+                if phrase.lower() in employer_text.lower():
+                    failures.append(f"role opportunity brief leaks internal presentation language: {phrase}")
+            if employer_text.count('class="evidence-shot"') < 2:
+                failures.append("role opportunity brief needs at least two embedded evidence screenshots")
+            if "data:image/" not in employer_text:
+                failures.append("role opportunity brief screenshots are not embedded for standalone/PDF use")
+
+        screenshot_manifest = work_dir / "evidence-screenshots.json"
+        if role_brief_source.exists():
+            if not screenshot_manifest.exists():
+                failures.append(f"role opportunity brief requires screenshot manifest: {screenshot_manifest}")
+            else:
+                try:
+                    screenshot_data = json.loads(screenshot_manifest.read_text(encoding="utf-8"))
+                    included = [item for item in screenshot_data.get("screenshots", []) if item.get("include_in_role_brief")]
+                    if len(included) < 2:
+                        failures.append("screenshot manifest needs at least two role-brief images")
+                    package_root = run_root.resolve() if (run_root.resolve() / "outputs").is_dir() else output_dir.parent
+                    evidence_urls = {row.get("record_id", ""): row.get("url", "") for row in rows}
+                    for index, item in enumerate(included, 1):
+                        if item.get("public_safe") is not True:
+                            failures.append(f"screenshot manifest image {index} must set public_safe to true")
+                        if item.get("record_id") not in set(ids):
+                            failures.append(f"screenshot manifest image {index} record_id is absent from evidence CSV")
+                        image_path = (package_root / item.get("file", "")).resolve()
+                        try:
+                            image_path.relative_to(package_root.resolve())
+                        except ValueError:
+                            failures.append(f"screenshot manifest image {index} escapes the run root")
+                        if not image_path.exists():
+                            failures.append(f"screenshot manifest image {index} missing: {image_path}")
+                        if not HTTP_URL.fullmatch(item.get("source_url", "")):
+                            failures.append(f"screenshot manifest image {index} needs direct URL")
+                        elif item.get("record_id") in evidence_urls and item.get("source_url") != evidence_urls[item.get("record_id")]:
+                            failures.append(f"screenshot manifest image {index} URL does not match its evidence record")
+                        if not ISO_DATE.fullmatch(item.get("observed_date", "")):
+                            failures.append(f"screenshot manifest image {index} needs ISO date")
+                        if not item.get("caption") or not item.get("source_name"):
+                            failures.append(f"screenshot manifest image {index} needs caption and source name")
+                except (OSError, json.JSONDecodeError) as exc:
+                    failures.append(f"invalid screenshot manifest: {exc}")
+
+    glossary_path = output_dir / "GLOSSARY.md"
+    _, interview_failures = lint_interview(required["cheatsheet"], glossary_path if glossary_path.exists() else None)
     failures.extend(
         f"interview lint {item['type']} at line {item['line']}: {item['message']}"
         for item in interview_failures
@@ -166,6 +250,17 @@ def validate(run_root, require_state=False):
         ):
             if not re.search(rf"^\s*{re.escape(key)}:", state, re.M):
                 failures.append(f"run state missing deliverable readiness field: {key}")
+        if require_reader_layer:
+            for key in (
+                "p0_items", "p1_answer_anchors", "three_minute_fallback_ready",
+                "nonlinear_intent_routes", "unexplained_acronyms", "visible_audit_ids",
+                "dashboard_built", "role_opportunity_brief_public_safe",
+                "role_brief_screenshot_count", "glossary", "job_search_dashboard_html",
+                "answer_evidence_map", "optional_role_opportunity_brief_html",
+                "optional_evidence_screenshot_manifest",
+            ):
+                if not re.search(rf"^\s*{re.escape(key)}:", state, re.M):
+                    failures.append(f"run state missing reader-layer field: {key}")
         sample_unit = state_scalar(state, "sample_unit")
         collected = state_scalar(state, "collected_count")
         if sample_unit and collected and collected.isdigit():
@@ -193,8 +288,9 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("run_root", nargs="?", type=Path, default=Path.cwd())
     parser.add_argument("--require-state", action="store_true")
+    parser.add_argument("--require-reader-layer", action="store_true")
     args = parser.parse_args()
-    failures, warnings, summary = validate(args.run_root, args.require_state)
+    failures, warnings, summary = validate(args.run_root, args.require_state, args.require_reader_layer)
     result = {
         "validator": "eliot-global-job-intelligence/run-package",
         "summary": summary,
