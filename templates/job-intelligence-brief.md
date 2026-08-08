@@ -1,90 +1,91 @@
-# JOB INTELLIGENCE BRIEF
+# 岗位情报简报
 
-## 1. Executive summary
+> 先看一页结论；需要细节时，再沿着来源链接继续查看。
 
-- Company in one sentence:
-- Role in one sentence:
-- Verified hiring problem:
-- Inferred hiring problem:
-- Outcome owned:
-- Candidate positioning:
-- Reversal condition:
+## 一页结论
 
-## 2. Company and product
+- 公司一句话：
+- 岗位一句话：
+- 已确认的招聘问题：
+- 仍需验证的招聘假设：
+- 岗位最终负责的结果：
+- 候选人最可信的定位：
+- 哪个新信息会推翻当前判断：
 
-| Claim ID | Claim | Status | Source/date | Contradiction | Confidence |
-| --- | --- | --- | --- | --- | --- |
+## 公司和产品到底做什么
 
-## 3. Why hire now
-
-### Verified
-
-### Inferred and alternatives
-
-### Questions that could reverse the model
-
-## 4. Role Reality Gate
-
-- Gate result:
-- Core outcome:
-- Core tasks:
-- Tools/keywords only:
-- Missing dependencies or contradictions:
-
-## 5. Local Market Gate
-
-- Market/language:
-- User/customer:
-- Platforms:
-- Commercial and compliance norms:
-- Transferable China experience:
-- Adaptation required:
-- Gate result:
-
-## 6. Benchmark Intelligence Gate
-
-- Direct competitors:
-- Business-model peers:
-- Mechanism analogues:
-- Campaign/program patterns:
-- Reconstructed operating chain:
-- Current tool/platform landscape when relevant:
-- Transferable lessons and non-transferable differences:
-- Missing public evidence:
-- Gate result:
-
-## 7. Operating map
-
-| OPS ID | Step | Owner | Input | Action | Output | Metric | Failure | Local difference |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-
-## 8. Role-specific samples
-
-- Sample protocol and sufficiency:
-- Direct cases:
-- Analogous mechanisms:
-- Retrieval limits:
-
-## 9. AI coverage plan and source convergence
-
-| Service/capability | Distinct job | Original sources recovered | Included/excluded | Reason |
+| 人话结论 | 已确认/推测/未知 | 直接来源与日期 | 可能的另一种解释 | 可信度 |
 | --- | --- | --- | --- | --- |
 
-Explain why unused services were unnecessary. Model agreement is not evidence.
+## 为什么现在招这个人
 
-## 10. Tools, artifacts, stakeholders, KPIs
+### 已确认
 
-## 11. Company and role risks
+### 推测及替代解释
 
-## 12. Candidate fit
+### 面试中必须确认的问题
 
-| FIT ID | JD requirement | Actual task | Experience | Evidence | State | Gap | Safe wording |
+## 这个岗位实际怎么工作
+
+- 负责的业务结果：
+- 反复发生的关键任务：
+- 协作对象与交接：
+- 工具只是怎么辅助：
+- 缺失资源或岗位矛盾：
+
+## 当地市场有什么不同
+
+- 国家/地区和语言：
+- 用户或客户：
+- 主要平台：
+- 商业和合规习惯：
+- 中国经验可以迁移的部分：
+- 必须重新学习的部分：
+
+## 对标品牌是怎么做的
+
+- 直接竞品：
+- 相似商业模式：
+- 可借鉴的机制：
+- 至少一条完整链路：目标 → 找人/获客 → 合作/内容 → 放大 → 追踪 → 复盘
+- 哪些做法不能直接照搬：
+- 还缺哪些公开证据：
+
+## 工作链路图
+
+| 环节 | 谁负责 | 输入 | 关键动作 | 产出 | 怎么判断好坏 | 常见失败 | 当地差异 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 
-## 13. First 30 days
+## 调研样本和工具
 
-Prospective framework; list assumptions, required internal data, and success/stop signals.
+- 为什么选这些样本：
+- 有代表性的直接案例：
+- 有代表性的类比案例：
+- 当前工具或平台格局：
+- 访问限制：
 
-## 14. Sources and uncertainty
+完整证据、筛选和来源链接请在 `JOB_SEARCH_DASHBOARD.html` 中查看。
 
-Include browser gate, source dates, blocked branches, contradictions, and access gaps.
+## 多 AI 分工与来源收敛
+
+| 服务或能力 | 单独负责什么 | 找回了哪些原始来源 | 是否采用 | 原因 |
+| --- | --- | --- | --- | --- |
+
+说明为什么没有使用某些服务。多个模型说法一致不等于证据成立。
+
+## 关键指标、协作与风险
+
+首次出现缩写时写全称和中文解释，并同步到 `GLOSSARY.md`。
+
+## 候选人匹配度
+
+| 岗位要求 | 实际任务 | 我最接近的经历 | 能迁移的机制 | 真实缺口 | 面试里怎么自然表达 |
+| --- | --- | --- | --- | --- | --- |
+
+## 入职前 30 天的前瞻方案
+
+列明假设、需要公司提供的内部数据、成功信号、诊断信号和停止信号。不要把方案写成过去做过的成绩。
+
+## 来源、不确定性与访问限制
+
+用直接链接、来源名称和观察日期呈现。不要让读者靠内部编号理解这一节。

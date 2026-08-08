@@ -1,76 +1,112 @@
-# INTERVIEW CHEATSHEET
+# 面试小抄
 
-## Read this first
+> 先记结论，再记故事，最后才看细节。这里全部使用容易记住的人话名称。
 
-- Company in one sentence:
-- Role in one sentence:
-- Three business problems:
-- My positioning:
-- Three gaps I can explain naturally:
+## 面试前 10 分钟
 
-## 60-second introduction
+### P0｜必须记住（最多 5 条）
 
-### CANDIDATE SAYS
+1. **公司一句话：**
+2. **岗位一句话：**
+3. **我的定位：**
+4. **最强故事：**
+5. **不能夸大的边界：**
 
-Write only the natural first-person answer.
+### P1｜高概率会用到
 
-### COACH NOTES
+- 三个业务问题：
+- 第二个强故事：
+- 一个方法论：
+- 一个失败或复盘：
+- 一个真实短板及补法：
 
-- Interviewer intent:
-- Evidence IDs:
-- Truth boundary:
-- Follow-up risk:
+### P2｜需要时再查
 
-## Five evidenced strengths
+- 竞品、样本、工具、完整数据和长答案统一放在可视化网页中。
 
-| Strength | Proof/story | How it helps this role | Coach-only evidence IDs |
+## 如果只剩 3 分钟
+
+- 公司现在最需要解决：
+- 我最能证明的能力：
+- 我会用的两个故事：
+- 我一定会问面试官的三个问题：
+
+## 乱序提问导航
+
+先判断面试官在考什么，再取用对应故事。不要试图把背好的答案按原顺序说完。
+
+| 面试官在考什么 | 常见问法 | 先调用哪个答案锚点 | 一句话桥接 |
+| --- | --- | --- | --- |
+| 动机与匹配 | 为什么我们/为什么这个岗位 | 公司判断 + 我的定位 | “我先直接说最核心的匹配点……” |
+| 经历与所有权 | 你具体做过什么 | 最强故事 | “我用一个我亲自推进的例子说明……” |
+| 方法与优先级 | 你会怎么做 | 方法卡 | “我会先判断目标，再决定先做哪一步……” |
+| 数据与结果 | 效果怎么样/怎么看数据 | 指标口径 + 复盘 | “我先说当时用什么口径判断，再说结果……” |
+| 失败与冲突 | 做砸过什么/怎么协作 | 复盘故事 | “这件事我会重点讲我后来改了什么……” |
+| 场景题 | 如果给你一个新市场 | 澄清 → 排序 → 方案 → 验证 | “我会先确认两个前提，再给具体方案……” |
+| 公司与市场 | 你怎么看我们/竞品 | 一条事实 + 一条判断 + 一个问题 | “我看到一个值得验证的信号……” |
+| 短板与陌生工具 | 你没做过怎么办 | 最近经验 + 真实差距 + 第一步 | “我最接近的经验是……还需要补的是……” |
+
+**乱序应答原则：**直接回答 → 调一个故事/方法 → 说明与岗位的关系 → 停下来。问题不清楚时先问一句；被打断时立即回答新问题，不强行续完旧稿。
+
+## 60 秒自我介绍
+
+### 可以直接说
+
+只写可以直接说出口的第一人称答案。
+
+## 我的五个答案锚点
+
+每个锚点取一个容易记住的人类名称，例如“从内容复盘找到增长方向”，不要使用编号。
+
+| 优先级 | 锚点名称 | 一句话结论 | 可回答哪些问题 | 需要避免夸大什么 |
+| --- | --- | --- | --- | --- |
+| P0 |  |  |  |  |
+
+## 核心故事卡
+
+### [故事名称]
+
+**面试官想确认：**
+
+#### 可以直接说｜30 秒
+
+#### 可以直接说｜60 秒
+
+#### 可能追问
+
+- 你个人具体负责什么？
+- 为什么这样判断？
+- 数据口径是什么？
+- 如果换市场、预算或周期会怎么改？
+
+## 方法与判断题
+
+| 问题 | 先给的结论 | 使用的真实方法/拟议方法 | 取舍与验证 |
 | --- | --- | --- | --- |
 
-## Core stories
+## 自然表达短板
 
-### ANS-001 — [Question]
+先讲最接近的真实经验，只说一次缺口，再说明进入岗位后的第一个验证动作。
 
-**Interviewer intent:**
+## 英文表达
 
-#### CANDIDATE SAYS — 30 seconds
+使用能直接说出口的短句。缩写第一次出现时写全称和中文解释。
 
-#### CANDIDATE SAYS — 60 seconds
+## 术语提示
 
-#### COACH NOTES
+只列本次岗位实际会用到的术语；完整解释见 `GLOSSARY.md`。
 
-- Evidence IDs:
-- Personal ownership:
-- Missing proof:
-- Likely three-round follow-ups:
-- Narrow/remove when:
+## 反向提问
 
-## Method and judgment questions
+## 给面试官看的作品怎么讲
 
-| Question | What interviewer wants | Candidate's direct answer | Coach-only evidence/assumption |
-| --- | --- | --- | --- |
+## 阅读检查
 
-## Natural gap answers
-
-Lead with the closest real experience, state the missing ownership once, then explain the first practical step.
-
-## English expression
-
-Use speakable phrases, not translated control language.
-
-## Reverse-interview questions
-
-## Coach-only claim boundary
-
-Do not copy this section into spoken answers.
-
-## Work-sample talk track
-
-## Human Voice Gate
-
-- [ ] No `EXP/AST/FIT/CLM/SRC`, evidence citations, or schema labels inside candidate speech.
-- [ ] No `BLOCKED`, `TRANSFERABLE`, `HYPOTHETICAL`, “本次材料未验证”, or “我不会把它说成”.
-- [ ] Each answer addresses interviewer intent in the first two sentences.
-- [ ] Each experience answer shows a real person, action, decision, and result/learning.
-- [ ] Gaps are truthful but do not dominate every answer.
-- [ ] Every answer sounds natural when read aloud.
-
+- [ ] 开头五条以内已经覆盖最重要的信息。
+- [ ] 任意乱序问题都能路由到一个答案锚点。
+- [ ] 没有看不懂的编号、状态标签或系统术语。
+- [ ] 所有必要缩写首次出现都有全称和中文解释。
+- [ ] 每个答案前两句已经回应面试官真正想确认的点。
+- [ ] 每个经历答案都有真实的人、动作、判断和结果/学习。
+- [ ] 短板真实，但没有淹没正面证据。
+- [ ] 全文大声读起来像本人，而不是报告或合规声明。

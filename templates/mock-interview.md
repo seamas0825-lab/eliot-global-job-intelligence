@@ -1,40 +1,32 @@
-# MOCK INTERVIEW
+# 模拟面试
 
-## ANS-001 — [Question]
+> 用容易记住的故事名称，只保留面试中真正会用到的内容。
 
-**Question type:** experience | method | judgment | company/market | gap
+## [问题]
 
-**Interviewer intent:**
+**问题类型：**经历｜方法｜判断｜公司/市场｜短板
 
-**Strong signal:**
+**面试官真正想确认：**
 
-### CANDIDATE SAYS
+**应该给出的强信号：**
 
-Write the natural first-person answer only.
+### 可以直接说
 
-### COACH NOTES
+只写自然、第一人称、可以直接说出口的答案。
 
-- Evidence IDs or hypothetical-method status:
-- Truth boundary:
-- Missing proof:
+### 第一轮追问｜你个人做了什么
 
-#### Round 1 — ownership
+- 面试官追问：
+- 候选人回答：
 
-- Question:
-- Candidate response:
-- Narrow/remove when:
+### 第二轮追问｜具体怎么做和怎么判断
 
-#### Round 2 — mechanics
+- 面试官追问：
+- 候选人回答：
 
-- Question:
-- Candidate response:
-- Narrow/remove when:
+### 第三轮追问｜换市场、预算或周期怎么办
 
-#### Round 3 — transfer
+- 面试官追问：
+- 候选人回答：
 
-- Question:
-- Candidate response:
-- Narrow/remove when:
-
-**Final status:** pass | narrowed | blocked
-
+**最终可用状态：**可以直接说｜需要收窄｜暂时不用
