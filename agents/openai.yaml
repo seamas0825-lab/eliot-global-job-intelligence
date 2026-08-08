@@ -1,4 +1,4 @@
 interface:
   display_name: "Eliot 出海岗求职小抄"
   short_description: "Evidence-to-interview OS for truthful global-role preparation"
-  default_prompt: "Use $eliot-global-job-intelligence to benchmark this global role and its competitors, map my truthful evidence, and build a natural interview-ready cheatsheet."
+  default_prompt: "Use $eliot-global-job-intelligence to benchmark this global role, map my truthful evidence, prioritize what I must remember, prepare for out-of-order questions, and build candidate and company-ready visual pages."
