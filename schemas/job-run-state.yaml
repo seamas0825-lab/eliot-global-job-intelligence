@@ -138,17 +138,35 @@ answer_gate:
 human_voice_gate:
   interviewer_intent_mapped: []
   candidate_speech_sections: []
-  coach_note_sections: []
+  internal_answer_map_entries: []
   leaked_internal_labels: []
   repeated_disclaimers: []
   read_aloud_failures: []
   result: "pass | revise | blocked"
 
+reader_experience_gate:
+  p0_items: []
+  p1_answer_anchors: []
+  combined_p0_p1_count: 0
+  three_minute_fallback_ready: false
+  nonlinear_intent_routes: []
+  unexplained_acronyms: []
+  visible_audit_ids: []
+  dashboard_built: false
+  role_opportunity_brief_public_safe: "not_requested | pass | fail"
+  role_brief_screenshot_count: 0
+  result: "pass | revise | blocked"
+
 deliverables:
   job_intelligence_brief: ""
   interview_cheatsheet: ""
+  glossary: ""
+  job_search_dashboard_html: ""
   evidence_and_benchmarks_csv: ""
+  answer_evidence_map: ""
   optional_work_sample: ""
+  optional_role_opportunity_brief_html: ""
+  optional_evidence_screenshot_manifest: ""
   package_validation: "not_run | pass | fail"
   cross_file_ids_valid: false
   candidate_fact_readiness: "provisional | candidate_confirmed | artifact_supported | blocked"

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "screenshots": [
+    {
+      "record_id": "BRAND-001",
+      "file": "work/screenshots/brand-homepage.png",
+      "source_name": "品牌官网",
+      "source_url": "https://example.com/direct-page",
+      "observed_date": "2026-08-08",
+      "caption": "一句话说明截图直接支持的观察",
+      "include_in_role_brief": true,
+      "public_safe": true
+    }
+  ]
+}
