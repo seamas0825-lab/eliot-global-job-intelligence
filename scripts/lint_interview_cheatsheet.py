@@ -58,7 +58,29 @@ def candidate_sections(text):
     return sections
 
 
-def lint(path, glossary_path=None):
+def candidate_resume_anchors(path):
+    if not path or not path.exists():
+        return []
+    text = path.read_text(encoding="utf-8")
+    values = []
+    for key in ("organization_or_context", "title_or_role"):
+        for match in re.finditer(rf"^\s*{key}:\s*(.+?)\s*$", text, re.M):
+            value = match.group(1).split(" #", 1)[0].strip().strip("\"'")
+            if value and " | " not in value and len(value) >= 2:
+                values.append(value)
+    return list(dict.fromkeys(values))
+
+
+def default_candidate_evidence(path):
+    candidate = path.parent.parent / "work" / "candidate-evidence.yaml"
+    return candidate if candidate.exists() else None
+
+
+def section_text(section):
+    return "\n".join(line for _, line in section["lines"])
+
+
+def lint(path, glossary_path=None, candidate_evidence_path=None):
     text = path.read_text(encoding="utf-8")
     glossary_path = glossary_path or path.with_name("GLOSSARY.md")
     glossary = glossary_path.read_text(encoding="utf-8") if glossary_path.exists() else ""
@@ -104,6 +126,50 @@ def lint(path, glossary_path=None):
             "line": 1,
             "message": "Mark candidate-ready speech with a natural heading such as ‘可以直接说’.",
         })
+    candidate_evidence_path = candidate_evidence_path or default_candidate_evidence(path)
+    resume_anchors = candidate_resume_anchors(candidate_evidence_path)
+    if resume_anchors and sections:
+        introductions = [
+            section for section in sections
+            if re.search(r"自我介绍|self[- ]?introduction|introduce yourself", section["heading"], re.I)
+        ]
+        if not introductions:
+            failures.append({
+                "type": "missing_resume_grounded_introduction",
+                "line": 1,
+                "message": "A supplied resume requires a complete candidate-ready self-introduction.",
+            })
+        else:
+            introduction = section_text(introductions[0])
+            if not re.search(r"面试官.{0,8}(?:好|您好)|\b(?:hello|hi)\b", introduction, re.I):
+                failures.append({
+                    "type": "missing_introduction_greeting",
+                    "line": introductions[0]["start"],
+                    "message": "Open the primary self-introduction with a natural greeting.",
+                })
+            if not re.search(r"我(?:叫|姓|是)|\bmy name is\b|\bi(?:'m| am)\b", introduction, re.I):
+                failures.append({
+                    "type": "missing_introduction_identity",
+                    "line": introductions[0]["start"],
+                    "message": "Use a truthful spoken identity phrase such as ‘我叫’, ‘我姓’, or ‘我是’.",
+                })
+            intro_hits = [anchor for anchor in resume_anchors if anchor.lower() in introduction.lower()]
+            minimum = min(2, len(resume_anchors))
+            if len(intro_hits) < minimum:
+                failures.append({
+                    "type": "generic_self_introduction",
+                    "line": introductions[0]["start"],
+                    "message": f"Ground the introduction in at least {minimum} resume anchors; found {intro_hits}.",
+                })
+        for section in sections:
+            spoken_section = section_text(section)
+            hits = [anchor for anchor in resume_anchors if anchor.lower() in spoken_section.lower()]
+            if not hits:
+                failures.append({
+                    "type": "generic_candidate_answer",
+                    "line": section["start"],
+                    "message": f"‘{section['heading']}’ needs a human-readable company or role anchor from candidate evidence.",
+                })
     spoken = "\n".join(line for section in sections for _, line in section["lines"])
     for section in sections:
         for line_number, line in section["lines"]:
@@ -127,8 +193,9 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("path", type=Path)
     parser.add_argument("--glossary", type=Path)
+    parser.add_argument("--candidate-evidence", type=Path)
     args = parser.parse_args()
-    sections, failures = lint(args.path, args.glossary)
+    sections, failures = lint(args.path, args.glossary, args.candidate_evidence)
     result = {
         "file": str(args.path),
         "candidate_speech_sections": len(sections),

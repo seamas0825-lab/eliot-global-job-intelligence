@@ -80,10 +80,13 @@ JD and interview stage
 Company/product and target market
 Candidate resume and portfolio
 Candidate-confirmed ownership, data definitions, tools, and evidence assets
+Candidate spoken identity: available name form, current base, latest company/title, prior role, and missing identity fields
 Output language and deadline
 ```
 
 Do not ask for information already present in supplied files or links. If candidate evidence is missing, research the role but mark experience answers blocked; request facts rather than inventing them.
+
+If a resume is supplied, generic candidate speech is a delivery failure even when the audit IDs resolve. Build a spoken resume profile before drafting answers. Use the exact facts available in the resume: the candidate's safe name form, current base rather than assumed hometown, latest company and title, prior company or context, product/category, market, platforms, responsibilities, and two or three concrete stories. If the full name, hometown, employer name, or another identity field is absent, use a truthful natural alternative such as “我姓邓” or “我目前在深圳工作和生活,” or mark the field missing backstage. Never invent the missing detail to make the introduction sound complete.
 
 ## Execute the workflow
 
@@ -190,7 +193,36 @@ Map `JD requirement → actual task → candidate experience → transfer mechan
 
 Do not hide material gaps. State what can be learned, what needs supervision, and what should not be claimed.
 
-### 11. Pass the Evidence-to-Answer Gate
+### 11. Pass the Resume Grounding Gate
+
+When the user supplied a resume, every core experience-based answer must be grounded twice:
+
+1. backstage, through a real candidate evidence ID; and
+2. in candidate-ready speech, through at least one human-readable resume anchor such as the actual company/context, role, product/category, market, platform, named project, personal action, or defensible result.
+
+An evidence ID alone does not make a spoken answer personal. Reject answers that could be given unchanged by another candidate in the same role.
+
+The primary self-introduction must be a complete spoken narrative, not a positioning paragraph. Unless the information is unavailable, include this sequence naturally:
+
+```text
+greeting and safe name form → current base → years/seniority with a reconciled timeline
+→ latest company/title/product/market/platform scope → one or two concrete responsibilities/results
+→ prior company/context and what changed → strongest working pattern
+→ why this role/company now
+```
+
+Use “我叫…” only when the full name is actually available. Use “我姓…”, “我是…”, or another natural truthful phrase when it is not. Use “目前在…” for a current work base; do not rewrite it as “来自…” or a hometown.
+
+For the rest of the cheatsheet:
+
+- experience, ownership, content, data, creator, collaboration, failure, and transfer answers must name the relevant resume story rather than describe only a generic method;
+- method and scenario answers should open with the closest real resume context before proposing what would change for the target role;
+- numbers may appear only when the candidate can explain definition, period, baseline, personal contribution, and confounders;
+- hypothetical AI, tool, or first-30-day answers must still connect to a real past workflow or responsibility before describing the proposed use.
+
+Record in `job-run-state.yaml` which identity fields were available, which were missing, which core answers were grounded, and which generic answers were rewritten. The gate is **BLOCKED** when experience answers remain generic despite usable resume evidence.
+
+### 12. Pass the Evidence-to-Answer Gate
 
 Every experience answer must reference at least one real experience, artifact, metric, document, account, screenshot, workflow, or specific detail the candidate can explain live. If none exists, label it a hypothetical approach answer, never an experience answer.
 
@@ -204,7 +236,7 @@ Create 30-second, 60-second, and 2-minute versions only for high-priority questi
 
 Keep evidence IDs, claim states, transfer labels, verification warnings, and risk controls in `work/answer-evidence-map.yaml`. Do not put them inside the reader-facing cheatsheet or the words the candidate is supposed to say.
 
-### 12. Pass the Human Voice Gate
+### 13. Pass the Human Voice Gate
 
 For every core question, first infer what the interviewer wants to learn: competence, ownership, judgment, motivation, communication, risk, or learning speed. Then write the answer in the candidate's own first-person voice.
 
@@ -225,7 +257,7 @@ Start the cheatsheet with at most five P0 must-remember points, a three-minute f
 
 For Standard or Deep runs, build the reader layer with `python scripts/build_dashboard.py <run-root>`, then run `python scripts/validate_run_package.py <run-root> --require-state --require-reader-layer`. This validation must pass before the package is marked structurally valid. Fix noncanonical CSV enums, unresolved internal IDs, duplicate IDs, malformed dates/URLs, state/sample-count drift, candidate-evidence reference gaps, reader-facing ID leaks, missing priority/navigation sections, and dashboard failures rather than weakening the validator.
 
-### 13. Pass the Follow-up Stress Test Gate
+### 14. Pass the Follow-up Stress Test Gate
 
 Use a skeptical interviewer for three rounds:
 
@@ -235,7 +267,7 @@ Use a skeptical interviewer for three rounds:
 
 If an answer fails, narrow the claim, replace it with a transferable mechanism, request missing evidence, or mark it blocked. Never repair it with invented detail.
 
-### 14. Generate a work sample only after truth mapping
+### 15. Generate a work sample only after truth mapping
 
 Keep the artifact internally bounded as a proposed plan, mock shortlist, account map, audit, or 30-day framework derived from observable evidence. Do not imply access to internal data or that hypothetical outputs were past achievements; do not turn this control boundary into a self-conscious label in the external page.
 
@@ -250,6 +282,7 @@ Do not publish the final package until:
 - **Local Market:** country/region, language, audience/customer, platform, norms, and non-transferable assumptions are recorded.
 - **Browser Capability:** each required dynamic/authenticated branch is PASS or has a defensible DEGRADED fallback.
 - **Candidate Truth:** no fabricated or inflated experience, ownership, metric, tool, client, or result remains.
+- **Resume Grounding:** when a resume exists, the self-introduction contains the available identity and career narrative, and every core experience answer names a concrete resume anchor in ordinary language; generic answers are rewritten or blocked.
 - **Evidence-to-Answer:** each experience answer has a traceable evidence ID; hypotheticals are labeled.
 - **Human Voice:** candidate-ready answers contain no internal control language and pass a read-aloud interviewer-intent test.
 - **Human-first Reader:** P0/P1 priorities, three-minute fallback, nonlinear routing, jargon explanations, and the standalone dashboard are present; visible IDs are absent.
@@ -271,4 +304,4 @@ Keep the audit layer in `EVIDENCE_AND_BENCHMARKS.csv`, `work/candidate-evidence.
 
 Do not use one `verified` boolean to imply both file integrity and candidate-fact certainty. Record package validation, candidate-fact readiness, and interview readiness separately in `job-run-state.yaml`.
 
-Finish when the candidate can grasp the P0 points in ten minutes, route an out-of-order question to a reusable answer anchor, explain necessary jargon, explore the research visually, defend every material claim, state the real gaps, and show one truthful public work sample without another strategy meeting.
+Finish when the candidate can grasp the P0 points in ten minutes, introduce themselves with their actual career narrative, route an out-of-order question to a resume-grounded answer anchor, explain necessary jargon, explore the research visually, defend every material claim, state the real gaps, and show one truthful public work sample without another strategy meeting.

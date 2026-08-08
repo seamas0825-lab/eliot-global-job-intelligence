@@ -144,6 +144,17 @@ human_voice_gate:
   read_aloud_failures: []
   result: "pass | revise | blocked"
 
+resume_grounding_gate:
+  resume_supplied: false
+  identity_fields_available: []
+  identity_fields_missing: []
+  introduction_identity_phrase: ""
+  resume_anchors_available: []
+  core_experience_answers: []
+  grounded_core_experience_answers: []
+  generic_core_experience_answers: []
+  result: "pass | revise | blocked"
+
 reader_experience_gate:
   p0_items: []
   p1_answer_anchors: []

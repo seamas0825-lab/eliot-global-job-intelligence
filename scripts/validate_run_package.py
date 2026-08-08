@@ -257,7 +257,11 @@ def validate(run_root, require_state=False, require_reader_layer=False):
                 "dashboard_built", "role_opportunity_brief_public_safe",
                 "role_brief_screenshot_count", "glossary", "job_search_dashboard_html",
                 "answer_evidence_map", "optional_role_opportunity_brief_html",
-                "optional_evidence_screenshot_manifest",
+                "optional_evidence_screenshot_manifest", "resume_grounding_gate",
+                "resume_supplied", "identity_fields_available", "identity_fields_missing",
+                "introduction_identity_phrase", "resume_anchors_available",
+                "core_experience_answers", "grounded_core_experience_answers",
+                "generic_core_experience_answers",
             ):
                 if not re.search(rf"^\s*{re.escape(key)}:", state, re.M):
                     failures.append(f"run state missing reader-layer field: {key}")

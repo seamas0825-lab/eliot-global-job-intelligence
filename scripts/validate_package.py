@@ -26,6 +26,7 @@ EXPECTED_CASES = {
     "robotic-interview-control-language",
     "run-package-id-and-enum-drift",
     "human-first-nonlinear-dashboard",
+    "generic-answers-despite-resume",
 }
 REQUIRED = {
     "SKILL.md", "VERSION", "agents/openai.yaml",
