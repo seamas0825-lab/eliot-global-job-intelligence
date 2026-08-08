@@ -1,0 +1,52 @@
+{
+  "id": "human-first-nonlinear-dashboard",
+  "input": "A Standard Run is accurate but opens with 20 pages of Markdown, shows EXP-001/AST-001 throughout, uses KOL/GMV/ROAS without explanation, assumes the interview follows ten questions in order, and asks the candidate to inspect raw CSV. The candidate has ten minutes to prepare and also wants a five-minute role opportunity brief for the company discussion.",
+  "known_facts": [
+    "The evidence ledger and stable IDs are still needed for auditability",
+    "The candidate is not expected to understand the internal schema",
+    "The interviewer may jump between motivation, ownership, method, data, failure, and scenario questions",
+    "An employer-facing artifact must use public information only"
+  ],
+  "hidden_traps": [
+    "Deleting the evidence ledger to make the package look simple",
+    "Keeping IDs in collapsible reader-facing sections and calling them hidden",
+    "Treating a prettier CSV table as a complete visualization",
+    "Putting resume facts or coach notes into the employer-facing page",
+    "Assuming Windows has the same isolated parallel browser task spaces as EGO"
+  ],
+  "required_behavior": [
+    "Create a P0/P1/P2 memory ladder with at most five P0 points and ten combined P0/P1 anchors",
+    "Add a nonlinear router by interviewer intent and a direct-answer-to-anchor response protocol",
+    "Explain necessary abbreviations on first use and in a glossary",
+    "Keep IDs in CSV/YAML audit files and remove them from reader-facing Markdown/HTML",
+    "Generate a standalone offline candidate dashboard integrating Markdown and evidence data with Apple-inspired visual restraint and PDF export",
+    "Generate a separate professional role opportunity brief with its own PDF export and no cross-link to the candidate page",
+    "Capture and embed 2–6 public-safe original-page screenshots with captions, dates, and direct sources",
+    "Recommend parallel EGO Task Spaces on macOS only for independent branches and the sequential Browser Use plus Web Access fallback on Windows"
+  ],
+  "forbidden_behavior": [
+    "Make raw CSV the primary reading surface",
+    "Expose EXP/AST/FIT/CLM or source IDs to the candidate or company-facing reader",
+    "Invent candidate experience or company internal data",
+    "Promise EGO-equivalent Windows multi-window isolation",
+    "Cross-link the candidate and company-facing HTML files",
+    "Open the role brief with defensive language about candidates, interviews, internal access, or historical employment",
+    "Use search snippets, AI-answer pages, login state, private dashboards, or personal data as screenshot evidence"
+  ],
+  "expected_decisions": [
+    "Preserve a backstage audit layer and create separate candidate and employer layers",
+    "Prioritize memorization before completeness",
+    "Route by interviewer intent rather than question order",
+    "Use HTML as the default visual delivery and PPT only when explicitly requested"
+  ],
+  "acceptable_uncertainties": [
+    "Exact visual theme",
+    "Whether the employer artifact is shared before, during, or after the interview",
+    "Which optional public samples are included"
+  ],
+  "evaluation": {
+    "applicable_criteria": ["candidate_truth", "answer_evidence", "interviewer_intent", "human_voice", "cognitive_usability", "nonlinear_readiness", "reader_layer", "external_work_sample", "deliverable_usefulness"],
+    "minimum_total": 17,
+    "mandatory_twos": ["candidate_truth", "cognitive_usability", "nonlinear_readiness", "reader_layer", "external_work_sample"]
+  }
+}
